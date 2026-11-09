@@ -1,0 +1,239 @@
+name: Compilar APK Compatibilidad de Pantallas
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Instalar Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-34 build-tools;34.0.0'
+
+      - name: Instalar Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Generar el proyecto Android y meter la web
+        run: |
+          mkdir -p android/app/src/main/java/com/xypherunlocker/pantallas android/app/src/main/res/values android/app/src/main/res/drawable-nodpi android/app/src/main/res/mipmap-anydpi-v26 android/app/src/main/res/mipmap-xxxhdpi android/app/src/main/assets
+          cat > android/settings.gradle <<'EOF_CP'
+          pluginManagement {
+              repositories {
+                  google()
+                  mavenCentral()
+                  gradlePluginPortal()
+              }
+          }
+          dependencyResolutionManagement {
+              repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          rootProject.name = "Pantallas"
+          include ':app'
+          EOF_CP
+          cat > android/build.gradle <<'EOF_CP'
+          plugins {
+              id 'com.android.application' version '8.5.2' apply false
+          }
+          EOF_CP
+          cat > android/app/build.gradle <<'EOF_CP'
+          plugins {
+              id 'com.android.application'
+          }
+
+          android {
+              namespace 'com.xypherunlocker.pantallas'
+              compileSdk 34
+
+              defaultConfig {
+                  applicationId 'com.xypherunlocker.pantallas'
+                  minSdk 26
+                  targetSdk 34
+                  versionCode 1
+                  versionName '1.0'
+              }
+
+              signingConfigs {
+                  debug {
+                      storeFile file('../debug.keystore')
+                      storePassword 'android'
+                      keyAlias 'androiddebugkey'
+                      keyPassword 'android'
+                  }
+              }
+
+              buildTypes {
+                  release {
+                      minifyEnabled false
+                  }
+              }
+
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_17
+                  targetCompatibility JavaVersion.VERSION_17
+              }
+          }
+          EOF_CP
+          cat > android/app/src/main/AndroidManifest.xml <<'EOF_CP'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+              <application
+                  android:allowBackup="true"
+                  android:icon="@mipmap/ic_launcher"
+                  android:roundIcon="@mipmap/ic_launcher_round"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Pantallas"
+                  android:usesCleartextTraffic="false">
+
+                  <activity
+                      android:name=".MainActivity"
+                      android:exported="true"
+                      android:screenOrientation="portrait"
+                      android:configChanges="orientation|screenSize|keyboardHidden">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN" />
+                          <category android:name="android.intent.category.LAUNCHER" />
+                      </intent-filter>
+                  </activity>
+              </application>
+          </manifest>
+          EOF_CP
+          cat > android/app/src/main/java/com/xypherunlocker/pantallas/MainActivity.java <<'EOF_CP'
+          package com.xypherunlocker.pantallas;
+
+          import android.app.Activity;
+          import android.graphics.Color;
+          import android.os.Bundle;
+          import android.view.View;
+          import android.view.Window;
+          import android.webkit.WebSettings;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+
+          public class MainActivity extends Activity {
+
+              private WebView webView;
+
+              @Override
+              protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+
+                  Window window = getWindow();
+                  window.setStatusBarColor(Color.rgb(24, 33, 44));
+                  window.setNavigationBarColor(Color.rgb(24, 33, 44));
+
+                  webView = new WebView(this);
+                  webView.setBackgroundColor(Color.rgb(24, 33, 44));
+
+                  WebSettings settings = webView.getSettings();
+                  settings.setJavaScriptEnabled(true);
+                  settings.setDomStorageEnabled(true);
+                  settings.setMediaPlaybackRequiresUserGesture(false);
+
+                  webView.setWebViewClient(new WebViewClient());
+                  webView.loadUrl("file:///android_asset/index.html");
+
+                  setContentView(webView);
+              }
+
+              @Override
+              public void onBackPressed() {
+                  if (webView != null && webView.canGoBack()) {
+                      webView.goBack();
+                  } else {
+                      super.onBackPressed();
+                  }
+              }
+          }
+          EOF_CP
+          cat > android/app/src/main/res/values/strings.xml <<'EOF_CP'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <string name="app_name">Compatibilidad de Pantallas</string>
+          </resources>
+          EOF_CP
+          cat > android/app/src/main/res/values/colors.xml <<'EOF_CP'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <color name="ic_launcher_background">#18212C</color>
+          </resources>
+          EOF_CP
+          cat > android/app/src/main/res/values/themes.xml <<'EOF_CP'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <style name="Theme.Pantallas" parent="@android:style/Theme.Material.NoActionBar">
+                  <item name="android:windowBackground">#18212C</item>
+                  <item name="android:statusBarColor">#18212C</item>
+                  <item name="android:navigationBarColor">#18212C</item>
+              </style>
+          </resources>
+          EOF_CP
+          cat > android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml <<'EOF_CP'
+          <?xml version="1.0" encoding="utf-8"?>
+          <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+              <background android:drawable="@color/ic_launcher_background" />
+              <foreground android:drawable="@drawable/ic_launcher_art" />
+          </adaptive-icon>
+          EOF_CP
+          cat > android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml <<'EOF_CP'
+          <?xml version="1.0" encoding="utf-8"?>
+          <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+              <background android:drawable="@color/ic_launcher_background" />
+              <foreground android:drawable="@drawable/ic_launcher_art" />
+          </adaptive-icon>
+          EOF_CP
+          cp index.html android/app/src/main/assets/index.html
+          cp icon.png android/app/src/main/res/drawable-nodpi/ic_launcher_art.png
+          cp icon.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          cp icon.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+          find android -type f | sort
+
+      - name: Restaurar la firma fija
+        env:
+          KS_B64: ${{ secrets.DEBUG_KEYSTORE_B64 }}
+        run: |
+          echo "$KS_B64" | base64 -d > android/debug.keystore
+          ls -l android/debug.keystore
+
+      - name: Compilar APK (debug, instalable)
+        working-directory: android
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: Preparar la APK con su nombre
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk Compatibilidad-de-Pantallas.apk
+
+      - name: Publicar la APK como Release descargable
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0
+          name: Compatibilidad de Pantallas · APK v1.0
+          body: "Base de compatibilidades de pantallas para técnicos de celulares (48 modelos, 14 grupos, búsqueda por modelo y por código de panel). Desarrollado por XypherUnlocker. Descarga Compatibilidad-de-Pantallas.apk e instálala en tu Android (permite 'orígenes desconocidos' si te lo pide)."
+          files: Compatibilidad-de-Pantallas.apk
+
+      - name: Guardar también como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: Compatibilidad-de-Pantallas-apk
+          path: Compatibilidad-de-Pantallas.apk
