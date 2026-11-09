@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="data:," />
+    <title>Compatibilidad de Pantallas</title>
+    <style>
+      :root {
+        --bg: #18212c;
+        --bg-deep: #121a23;
+        --accent: #168bf0;
+        --accent-soft: rgba(22, 139, 240, 0.16);
+        --card: rgba(245, 247, 250, 0.96);
+        --card-border: rgba(255, 255, 255, 0.55);
+        --ink: #1b2735;
+        --ink-soft: #4c5b6d;
+        --ink-faint: #71828f;
+        --text: #eef3f8;
+        --text-soft: #aebfce;
+        --warn-bg: rgba(255, 176, 32, 0.1);
+        --warn-border: rgba(255, 176, 32, 0.45);
+        --warn-text: #ffd97a;
+        --danger: #e5484d;
+        --radius: 18px;
+      }
+      * { box-sizing: border-box; }
+      html {
+        -webkit-text-size-adjust: 100%;
+        background-color: #18212c;
+      }
+      body {
+        margin: 0;
+        background-color: #18212c;
+        background-image:
+          radial-gradient(1100px 500px at 85% -120px, rgba(22, 139, 240, 0.22), transparent 60%),
+          radial-gradient(700px 420px at -10% 30%, rgba(22, 139, 240, 0.1), transparent 55%),
+          linear-gradient(180deg, #18212c 0%, #121a23 100%);
+        background-repeat: no-repeat;
+        color: var(--text);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.45;
+      }
+      .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 28px 18px 56px;
+      }
+
+      /* ---------- Encabezado ---------- */
+      header { margin-bottom: 22px; }
+      h1 {
+        margin: 0 0 6px;
+        font-size: clamp(1.65rem, 5.5vw, 2.35rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.12;
+      }
+      .subtitle {
+        margin: 0 0 18px;
+        color: var(--text-soft);
+        font-size: 1rem;
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .stat {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 10px 16px;
+        min-width: 130px;
+      }
+      .stat b {
+        display: block;
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.1;
+      }
+      .stat span { font-size: 0.82rem; color: var(--text-soft); }
+
+      /* ---------- Buscador ---------- */
+      .search-box {
+        position: sticky;
+        top: 10px;
+        z-index: 20;
+        background: rgba(24, 33, 44, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        padding: 14px;
+        margin-bottom: 20px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      }
+      .search-field {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 0 14px;
+        border: 2px solid transparent;
+      }
+      .search-field:focus-within { border-color: var(--accent); }
+      .search-field svg { flex: 0 0 auto; color: var(--ink-faint); }
+      .search-field input {
+        flex: 1;
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        font: inherit;
+        font-size: 1.05rem;
+        color: var(--ink);
+        padding: 14px 0;
+      }
+      .search-field input::placeholder { color: var(--ink-faint); }
+      .clear-btn {
+        flex: 0 0 auto;
+        border: 0;
+        background: var(--accent-soft);
+        color: var(--accent);
+        width: 28px; height: 28px;
+        border-radius: 50%;
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+        display: none;
+      }
+      .clear-btn.visible { display: block; }
+      .filters {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.92rem;
+        font-weight: 600;
+        padding: 8px 18px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .chip:hover { border-color: var(--accent); }
+      .chip.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+      .result-count {
+        margin: 12px 2px 0;
+        font-size: 0.88rem;
+        color: var(--text-soft);
+      }
+
+      /* ---------- Tarjetas de modelos ---------- */
+      .results { display: grid; gap: 14px; }
+      .model-card {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        padding: 18px;
+        color: var(--ink);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+      }
+      .model-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .model-name {
+        margin: 0;
+        font-size: 1.28rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+      }
+      .model-code {
+        display: inline-block;
+        margin-top: 4px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 2px 9px;
+        border-radius: 6px;
+        font-variant-numeric: tabular-nums;
+      }
+      .tag {
+        flex: 0 0 auto;
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 999px;
+      }
+      .tag-catalogo { background: #e3ecf5; color: #3d5a76; }
+      .panel-spec {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 14px 0 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+      .panel-spec svg { color: var(--accent); flex: 0 0 auto; }
+      .group-label {
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .fits-label {
+        margin: 16px 0 8px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .fits-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .fits-list li {
+        background: #eef3f8;
+        border: 1px solid #d7e1ec;
+        border-radius: 9px;
+        padding: 6px 11px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .fits-list li .code { color: var(--accent); font-weight: 700; font-size: 0.82rem; }
+      .no-group {
+        margin: 14px 0 0;
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+      .unique-alert {
+        margin-top: 14px;
+        background: #fdecec;
+        border: 1.5px solid var(--danger);
+        border-radius: 10px;
+        padding: 12px 14px;
+      }
+      .unique-alert-title {
+        margin: 0 0 4px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #a02327;
+      }
+      .unique-alert-text {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #6e3a3c;
+      }
+      .group-note {
+        margin: 14px 0 0;
+        padding: 11px 13px;
+        background: #fff7e0;
+        border: 1px solid #f0d48a;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        color: #6b5510;
+      }
+      .empty {
+        text-align: center;
+        padding: 38px 20px;
+        color: var(--text-soft);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px dashed rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius);
+      }
+      .empty b { color: var(--text); display: block; font-size: 1.05rem; margin-bottom: 4px; }
+
+      /* ---------- Secciones ---------- */
+      section { margin-top: 38px; }
+      h2 {
+        margin: 0 0 6px;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .section-sub {
+        margin: 0 0 16px;
+        color: var(--text-soft);
+        font-size: 0.95rem;
+      }
+      .warn-card {
+        background: var(--warn-bg);
+        border: 1px solid var(--warn-border);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        margin-bottom: 12px;
+      }
+      .warn-card h3 {
+        margin: 0 0 5px;
+        font-size: 1.02rem;
+        font-weight: 800;
+        color: var(--warn-text);
+      }
+      .warn-card p { margin: 0; font-size: 0.94rem; color: #e8e2cf; }
+
+      .panel-search {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius);
+        padding: 16px;
+      }
+      .panel-search .search-field { border-radius: 10px; }
+      .panel-result { margin-top: 14px; }
+      .unknown-card {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        padding: 16px 18px;
+        color: var(--ink);
+      }
+      .unknown-card .codes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 0 0 10px;
+      }
+      .unknown-card .codes span {
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+        background: #eef3f8;
+        border: 1px solid #d7e1ec;
+        padding: 4px 10px;
+        border-radius: 7px;
+      }
+      .tag-pending {
+        background: #fde8e8;
+        color: var(--danger);
+      }
+      .unknown-card p { margin: 8px 0 0; font-size: 0.93rem; color: var(--ink-soft); }
+      .panel-hint { margin: 12px 2px 0; font-size: 0.88rem; color: var(--text-soft); }
+
+      footer {
+        margin-top: 44px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-soft);
+        font-size: 0.86rem;
+      }
+      footer p { margin: 0 0 6px; }
+      .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+      .legend .tag { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+      .tag-taller { background: #dff5e3; color: #1c6b34; }
+
+      @media (min-width: 640px) {
+        .results { grid-template-columns: 1fr 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Compatibilidad de Pantallas</h1>
+        <p class="subtitle">Base de datos para técnicos — prototipo</p>
+        <div class="stats">
+          <div class="stat"><b>48</b><span>modelos registrados</span></div>
+          <div class="stat"><b>14</b><span>grupos de compatibilidad</span></div>
+          <div class="stat"><b>4</b><span>pantallas únicas</span></div>
+          <div class="stat"><b>3</b><span>marcas: Samsung, Xiaomi y Motorola</span></div>
+        </div>
+      </header>
+
+      <div class="search-box">
+        <div class="search-field">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+          <input id="searchInput" type="search" inputmode="search" autocomplete="off" placeholder="Busca un modelo o código: A125, Note 10, M2101K7AG…" aria-label="Buscar por modelo o código" />
+          <button class="clear-btn" id="clearBtn" type="button" aria-label="Limpiar búsqueda">×</button>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrar por marca o por pantalla única">
+          <button class="chip active" type="button" data-brand="todos">Todos</button>
+          <button class="chip" type="button" data-brand="samsung">Samsung</button>
+          <button class="chip" type="button" data-brand="xiaomi">Xiaomi</button>
+          <button class="chip" type="button" data-brand="motorola">Motorola</button>
+          <button class="chip" type="button" data-brand="unicos">Sin compatibilidad</button>
+        </div>
+        <p class="result-count" id="resultCount"></p>
+      </div>
+
+      <main>
+        <div class="results" id="results"></div>
+        <div class="empty" id="emptyState" hidden>
+          <b>Ese modelo todavía no está en la base de datos</b>
+          No significa que su pantalla sea única: significa que aún no lo cargamos. La base crece con datos de catálogo y verificaciones de taller.
+        </div>
+
+        <section aria-labelledby="warnTitle">
+          <h2 id="warnTitle">⚠ Gemelos y versiones peligrosas</h2>
+          <p class="section-sub">Modelos que se parecen por fuera pero pueden traicionar a la hora de montar la pantalla.</p>
+
+          <article class="warn-card">
+            <h3>A125 vs A127 — Galaxy A12 vs A12 Nacho</h3>
+            <p>Por fuera casi iguales y con procesadores distintos. La pantalla es del mismo grupo, PERO hay versiones de panel (BOE / CDOT / T) incompatibles entre sí. Verificar la versión antes de montar.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>A135 vs A137 — Galaxy A13 4G vs A13 2022</h3>
+            <p>No dejarse llevar por el procesador: aunque el chip es distinto (Exynos 850 vs Helio G80), la pantalla es la misma — comparten el grupo G2.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>A145P vs A145F — dos Galaxy A14 gemelos</h3>
+            <p>Gemelos por fuera con procesadores distintos (Helio G80 vs Exynos 850). El repuesto se vende por separado para cada uno: no asumir compatibilidad.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Códigos genéricos de panel (J4651 / flex P4651)</h3>
+            <p>No aparecen en ningún catálogo. Solo se identifican con verificaciones reales de taller, probando la pantalla en el equipo.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Redmi Note 11 ≠ Redmi Note 11 Pro</h3>
+            <p>Nombres casi iguales, pantallas distintas: 6.43" el Note 11 contra 6.67" el Pro. El módulo del Note 11 / 11S / 12S (grupo G12) NO le sirve al Note 11 Pro.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Redmi 12C ≠ Redmi 12</h3>
+            <p>El 12C comparte pantalla con el Redmi 11A y el Poco C55 (grupo G13), pero NO con el Redmi 12 a secas, que lleva una pantalla más grande, de 6.79".</p>
+          </article>
+        </section>
+
+        <section aria-labelledby="panelTitle">
+          <h2 id="panelTitle">Buscar por código de panel</h2>
+          <p class="section-sub">Escribe el código impreso en el panel o en el flex de la pantalla que tienes en la mano.</p>
+          <div class="panel-search">
+            <div class="search-field">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+              <input id="panelInput" type="search" inputmode="search" autocomplete="off" placeholder="Ej. J4651" aria-label="Buscar por código de panel" />
+            </div>
+            <div class="panel-result" id="panelResult"></div>
+            <p class="panel-hint">Los códigos de paneles genéricos no están en los catálogos de repuestos: esta sección crece con las verificaciones que se hagan en el taller.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Datos recopilados de catálogos de repuestos. Cada compatibilidad lleva su origen marcado:</p>
+        <div class="legend">
+          <span class="tag tag-catalogo">Catálogo</span>
+          <span class="tag tag-taller">Verificado en taller</span>
+        </div>
+        <p style="margin-top:12px">Por ahora todos los datos de este prototipo son de catálogo; las verificaciones de taller se irán sumando.</p>
+      </footer>
+    </div>
+
+    <script>
+      // ---------- Dataset (solo datos de catálogo, verificados) ----------
+      var GROUPS = [
+        {
+          id: "G1", brand: "samsung",
+          panel: 'PLS LCD 6.5" · 720×1600',
+          note: "Existen versiones de panel (BOE / CDOT / T) que se venden como repuestos distintos; verificar la versión antes de pedir.",
+          models: [
+            { name: "Galaxy A02", code: "A022" },
+            { name: "Galaxy A12", code: "A125" },
+            { name: "Galaxy A12 Nacho", code: "A127" }
+          ]
+        },
+        {
+          id: "G2", brand: "samsung",
+          panel: 'PLS LCD 6.6" · 1080×2408',
+          note: "Procesadores distintos (Exynos 850 vs Helio G80) pero comparten pantalla según catálogos (versión BOE).",
+          models: [
+            { name: "Galaxy A13 4G", code: "A135" },
+            { name: "Galaxy A13 2022", code: "A137" }
+          ]
+        },
+        {
+          id: "G3", brand: "samsung",
+          panel: 'PLS LCD 6.6" · 1080×2408',
+          note: "Versión BOE.",
+          models: [
+            { name: "Galaxy M13 4G", code: "M135" },
+            { name: "Galaxy A23 4G", code: "A235" }
+          ]
+        },
+        {
+          id: "G4", brand: "samsung",
+          panel: 'PLS LCD 6.5" · 720×1600',
+          note: null,
+          models: [
+            { name: "Galaxy A04s", code: "A047" },
+            { name: "Galaxy A13 5G", code: "A136" }
+          ]
+        },
+        {
+          id: "G5", brand: "samsung",
+          panel: 'PLS LCD 6.6" · 1080×2408',
+          note: null,
+          models: [
+            { name: "Galaxy A14", code: "A145P" }
+          ]
+        },
+        {
+          id: "G6", brand: "xiaomi",
+          panel: 'IPS LCD 6.53" · 720×1600',
+          note: "Códigos de modelo del grupo: M2006C3LG, M2006C3LI, M2006C3LC, M2006C3MG, M2006C3MT.",
+          models: [
+            { name: "Redmi 9A", code: null },
+            { name: "Redmi 9C", code: null },
+            { name: "Redmi 9C NFC", code: null },
+            { name: "Redmi 9AT", code: null },
+            { name: "Redmi 9i", code: null },
+            { name: "Redmi 10A", code: null },
+            { name: "Poco C3", code: null },
+            { name: "Poco C31", code: null }
+          ]
+        },
+        {
+          id: "G7", brand: "xiaomi",
+          panel: 'AMOLED 6.43" · 1080×2400',
+          note: "Códigos de modelo del grupo: M2101K7AI, M2101K7AG, M2101K7BG, 2207117BPG.",
+          models: [
+            { name: "Redmi Note 10 4G", code: null },
+            { name: "Redmi Note 10S", code: null },
+            { name: "Redmi Note 11 SE", code: null },
+            { name: "Poco M5s", code: null }
+          ]
+        },
+        {
+          id: "G8", brand: "xiaomi",
+          panel: 'IPS LCD 6.88" · 720×1640',
+          note: null,
+          models: [
+            { name: "Redmi 14C", code: "2409BRN2CY" },
+            { name: "Poco C75", code: null }
+          ]
+        },
+        {
+          id: "G9", brand: "xiaomi",
+          panel: 'IPS LCD 6.9" · 720×1600',
+          note: null,
+          models: [
+            { name: "Redmi 15C", code: null },
+            { name: "Poco C85", code: null }
+          ]
+        },
+        {
+          id: "G10", brand: "xiaomi",
+          panel: 'IPS LCD 6.71" · 720×1650',
+          note: null,
+          models: [
+            { name: "Redmi 10C", code: null },
+            { name: "Redmi 10 Power", code: null },
+            { name: "Poco C40", code: null }
+          ]
+        },
+        {
+          id: "G11", brand: "samsung",
+          panel: 'Super AMOLED 6.4" · 1080×2340',
+          note: null,
+          models: [
+            { name: "Galaxy A30", code: "A305" },
+            { name: "Galaxy A50", code: "A505" },
+            { name: "Galaxy A50s", code: "A507" }
+          ]
+        },
+        {
+          id: "G12", brand: "xiaomi",
+          panel: 'AMOLED 6.43" · 1080×2400',
+          note: 'Códigos de modelo del grupo: 2201117TG, 2201117SG. Ojo: NO sirve para el Redmi Note 11 Pro, que lleva una pantalla distinta de 6.67".',
+          models: [
+            { name: "Redmi Note 11 4G", code: null },
+            { name: "Redmi Note 11S 4G", code: null },
+            { name: "Redmi Note 12S", code: null },
+            { name: "Poco M4 Pro 4G", code: null }
+          ]
+        },
+        {
+          id: "G13", brand: "xiaomi",
+          panel: 'IPS LCD 6.71" · 720×1650',
+          note: 'Códigos de modelo del grupo: 22120RN86G, 22127PC95I. Ojo: NO es compatible con el Redmi 12 a secas, que lleva otra pantalla de 6.79".',
+          models: [
+            { name: "Redmi 12C", code: null },
+            { name: "Redmi 11A", code: null },
+            { name: "Poco C55", code: null }
+          ]
+        },
+        {
+          id: "G14", brand: "motorola",
+          panel: 'IPS LCD 6.5" · 720×1600',
+          note: null,
+          models: [
+            { name: "Moto G9 Play", code: "XT2083" },
+            { name: "Moto G9", code: "XT2081" },
+            { name: "Moto E7 Plus", code: "XT2081" }
+          ]
+        },
+        {
+          id: "G15", brand: "motorola",
+          panel: 'IPS LCD 6.5" · 720×1600',
+          note: null,
+          models: [
+            { name: "Moto E7 Power", code: "XT2097" },
+            { name: "Moto E7i", code: null },
+            { name: "Moto E7i Power", code: null }
+          ]
+        },
+        {
+          id: "U1", brand: "xiaomi",
+          panel: 'IPS LCD 6.53" · 1080×2340',
+          note: null,
+          models: [
+            { name: "Redmi Note 8 Pro", code: null }
+          ]
+        },
+        {
+          id: "U2", brand: "samsung",
+          panel: 'Super AMOLED 6.4" · 720×1600',
+          note: null,
+          models: [
+            { name: "Galaxy A22 4G", code: "A225" }
+          ]
+        },
+        {
+          id: "U3", brand: "motorola",
+          panel: 'IPS LCD 6.8" · 720×1640',
+          note: null,
+          models: [
+            { name: "Moto G9 Power", code: "XT2091" }
+          ]
+        }
+      ];
+
+      // Códigos de panel conocidos que aún no están identificados
+      var PANEL_CODES = [
+        {
+          codes: ["J4651", "P4651"],
+          status: "Sin identificar todavía — caso real de taller, pendiente de verificación.",
+          detail: "Panel genérico (incell) con marco. Los códigos impresos J4651 (panel) y P4651 R-S3 V7 (flex) son internos de la fábrica del panel y no aparecen en ningún catálogo de repuestos."
+        }
+      ];
+
+      // ---------- Utilidades ----------
+      function normalize(str) {
+        return (str || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[̀-ͯ]/g, "")
+          .replace(/[^a-z0-9]+/g, "");
+      }
+
+      function esc(str) {
+        return String(str).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+
+      // ---------- Render de resultados ----------
+      var resultsEl = document.getElementById("results");
+      var emptyEl = document.getElementById("emptyState");
+      var countEl = document.getElementById("resultCount");
+      var searchInput = document.getElementById("searchInput");
+      var clearBtn = document.getElementById("clearBtn");
+      var activeBrand = "todos";
+
+      function modelMatches(group, model, query) {
+        if (!query) return true;
+        var hay = [
+          model.name,
+          model.code || "",
+          group.id,
+          group.panel
+        ].join(" ");
+        // También buscar contra los códigos de modelo del grupo (nota de G6/G7)
+        if (group.note) hay += " " + group.note;
+        return normalize(hay).indexOf(query) !== -1;
+      }
+
+      function render() {
+        var query = normalize(searchInput.value);
+        var html = "";
+        var shown = 0;
+
+        GROUPS.forEach(function (group) {
+          if (activeBrand === "unicos") {
+            if (group.models.length !== 1) return;
+          } else if (activeBrand !== "todos" && group.brand !== activeBrand) return;
+          group.models.forEach(function (model) {
+            if (!modelMatches(group, model, query)) return;
+            shown++;
+            var others = group.models.filter(function (m) { return m !== model; });
+            html += '<article class="model-card">';
+            html += '<div class="model-head"><div>';
+            html += '<h3 class="model-name">' + esc(model.name) + "</h3>";
+            if (model.code) html += '<span class="model-code">' + esc(model.code) + "</span>";
+            html += '</div><span class="tag tag-catalogo">Catálogo</span></div>';
+            html += '<p class="panel-spec"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>' + esc(group.panel) + ' &nbsp;·&nbsp; <span class="group-label">' + (others.length ? "Grupo " + esc(group.id) : "Pantalla única") + "</span></p>";
+            if (others.length) {
+              html += '<p class="fits-label">Esta misma pantalla le sirve a:</p><ul class="fits-list">';
+              others.forEach(function (o) {
+                html += "<li>" + esc(o.name) + (o.code ? ' <span class="code">' + esc(o.code) + "</span>" : "") + "</li>";
+              });
+              html += "</ul>";
+            } else {
+              html += '<div class="unique-alert"><p class="unique-alert-title">Sin compatibilidad: esta pantalla no se comparte con ningún otro modelo</p><p class="unique-alert-text">No hay modelo donante: la pantalla de este equipo solo le sirve a él. No es un error de la app ni falta el modelo — está registrado, y su pantalla es única según los catálogos actuales.</p></div>';
+            }
+            if (group.note) html += '<p class="group-note">' + esc(group.note) + "</p>";
+            html += "</article>";
+          });
+        });
+
+        resultsEl.innerHTML = html;
+        emptyEl.hidden = shown > 0;
+        countEl.textContent = shown === 48 && !query && activeBrand === "todos"
+          ? "Mostrando los 48 modelos de la base."
+          : "Mostrando " + shown + (shown === 1 ? " modelo." : " modelos.");
+        clearBtn.classList.toggle("visible", searchInput.value.length > 0);
+      }
+
+      searchInput.addEventListener("input", render);
+      clearBtn.addEventListener("click", function () {
+        searchInput.value = "";
+        render();
+        searchInput.focus();
+      });
+
+      document.querySelectorAll(".chip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          document.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("active"); });
+          chip.classList.add("active");
+          activeBrand = chip.getAttribute("data-brand");
+          render();
+        });
+      });
+
+      render();
+
+      // ---------- Búsqueda por código de panel ----------
+      var panelInput = document.getElementById("panelInput");
+      var panelResult = document.getElementById("panelResult");
+
+      function entryCard(found) {
+        var codesHtml = found.codes.map(function (c) { return "<span>" + esc(c) + "</span>"; }).join("");
+        return '<div class="unknown-card">' +
+          '<div class="codes">' + codesHtml + '</div>' +
+          '<span class="tag tag-pending">Sin identificar</span>' +
+          "<p><b>" + esc(found.status) + "</b></p>" +
+          "<p>" + esc(found.detail) + "</p>" +
+          "</div>";
+      }
+
+      function renderPanel() {
+        var q = normalize(panelInput.value);
+        if (!q) {
+          // Mostrar por defecto los casos reales pendientes de identificar
+          panelResult.innerHTML = PANEL_CODES.map(entryCard).join("");
+          return;
+        }
+        var found = null;
+        PANEL_CODES.forEach(function (entry) {
+          entry.codes.forEach(function (code) {
+            if (normalize(code).indexOf(q) !== -1 || q.indexOf(normalize(code)) !== -1) found = entry;
+          });
+        });
+        if (found) {
+          panelResult.innerHTML = entryCard(found);
+        } else {
+          panelResult.innerHTML =
+            '<div class="unknown-card"><p style="margin:0"><b>Sin registro de ese código.</b> Todavía no hay ninguna verificación de taller asociada a ese código de panel.</p></div>';
+        }
+      }
+      panelInput.addEventListener("input", renderPanel);
+      renderPanel();
+    </script>
+  <div style="text-align:center;padding:20px 12px 28px;color:#7d94aa;font-size:13px;">Desarrollado por <strong style="color:#b7c0ca;">XypherUnlocker</strong></div>
+</body>
+</html>
