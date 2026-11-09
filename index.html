@@ -377,9 +377,12 @@
     <div class="wrap">
       <header>
         <h1>Screen Compatibility</h1>
-        <p class="subtitle">Base de datos para técnicos — prototipo</p>
+        <p class="subtitle">Base de datos de compatibilidades para técnicos</p>
         <div class="stats">
-          <div class="stat"><b>48</b><span>modelos registrados</span></div>
+          <div class="stat"><b>350</b><span>modelos registrados</span></div>
+          <div class="stat"><b>64</b><span>grupos de compatibilidad</span></div>
+          <div class="stat"><b>123</b><span>pantallas únicas</span></div>
+          <div class="stat"><b>3</b><span>marcas: Samsung, Xiaomi y Motorola</span></div>
           <div class="stat"><b>14</b><span>grupos de compatibilidad</span></div>
           <div class="stat"><b>4</b><span>pantallas únicas</span></div>
           <div class="stat"><b>3</b><span>marcas: Samsung, Xiaomi y Motorola</span></div>
@@ -413,34 +416,79 @@
           <h2 id="warnTitle">⚠ Gemelos y versiones peligrosas</h2>
           <p class="section-sub">Modelos que se parecen por fuera pero pueden traicionar a la hora de montar la pantalla.</p>
 
-          <article class="warn-card">
+                    <article class="warn-card">
             <h3>A125 vs A127 — Galaxy A12 vs A12 Nacho</h3>
-            <p>Por fuera casi iguales y con procesadores distintos. La pantalla es del mismo grupo, PERO hay versiones de panel (BOE / CDOT / T) incompatibles entre sí. Verificar la versión antes de montar.</p>
+            <p>Por fuera casi iguales y con procesadores distintos (Helio P35 vs Exynos 850). Comparten grupo de pantalla, PERO hay versiones de panel (BOE / CDOT / T) incompatibles entre sí. Verificar la versión impresa en el flex antes de montar.</p>
           </article>
 
           <article class="warn-card">
-            <h3>A135 vs A137 — Galaxy A13 4G vs A13 2022</h3>
-            <p>No dejarse llevar por el procesador: aunque el chip es distinto (Exynos 850 vs Helio G80), la pantalla es la misma — comparten el grupo G2.</p>
+            <h3>A13 4G vs A13 5G — pantallas opuestas</h3>
+            <p>El A13 4G (A135/A137) es FHD+ de 6.6" y el A13 5G (A136) es HD+ de 6.5": no comparten nada. Varios listados de tiendas meten el A136 en el grupo FHD+ por error.</p>
           </article>
 
           <article class="warn-card">
-            <h3>A145P vs A145F — dos Galaxy A14 gemelos</h3>
-            <p>Gemelos por fuera con procesadores distintos (Helio G80 vs Exynos 850). El repuesto se vende por separado para cada uno: no asumir compatibilidad.</p>
+            <h3>A145P vs familia A14</h3>
+            <p>La familia A14 (A145F / A145M / A146 / M146 / F146) comparte pantalla con conector largo de 48 pines, pero el A145P (Helio G80) va con módulo aparte. Gemelos por fuera, repuestos distintos: no asumir compatibilidad.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>A22 4G vs A22 5G</h3>
+            <p>Nombres casi iguales y pantallas opuestas: el 4G (A225) es AMOLED 6.4" 720×1600 y el 5G (A226) es TFT 6.6" 1080×2408. No comparten nada.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>A02s: versión 160 mm vs 162 mm</h3>
+            <p>El mismo modelo (A025) tiene dos tamaños de pantalla según la variante (F = 160 mm, G = 162 mm). Medir la pantalla rota antes de pedir el repuesto.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>A31 vs A32 4G vs M32 — la misma ficha, tres módulos</h3>
+            <p>Los tres declaran Super AMOLED 6.4" 1080×2400, pero los catálogos europeos venden tres módulos distintos. No cruzarlos sin verificar en taller.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Los tres «Redmi Note 11»</h3>
+            <p>Note 11 4G global (AMOLED 6.43"), Note 11 5G chino (IPS 6.6") y Note 11 4G chino (IPS 6.5"): tres pantallas distintas con el mismo nombre. Manda el código: 2201117* vs 21091116* vs 21121119SC.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Redmi Note 12 Pro 4G vs 5G</h3>
+            <p>El 12 Pro 4G comparte panel con Note 10 Pro / 11 Pro / Poco X4 Pro; el 12 Pro 5G va con Note 12 Pro+ / Poco X5 Pro. El apellido «Pro» no decide: decide si es 4G o 5G.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Redmi 12C ≠ 12 ≠ 13C</h3>
+            <p>Tres tamaños distintos en tres grupos distintos: 12C = 6.71" 720×1650, Redmi 12 = 6.79" 1080×2460 (con familia propia grande), 13C = 6.74" 720×1600.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Los tres «Redmi Note 9»</h3>
+            <p>Note 9 global (grupo propio), Note 9 4G chino (va con Poco M3 / 9T) y Note 9 5G / 9T (grupo propio): tres pantallas distintas bajo el mismo nombre.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Poco F5 vs Poco F5 Pro</h3>
+            <p>El F5 (1080×2400) va con el Redmi Note 13 5G; el F5 Pro (1440×3200) va con el Redmi K60. El «Pro» cambia resolución y panel completo.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Redmi Note 14 4G: Global vs EU</h3>
+            <p>El mismo modelo con dos cristales incompatibles según All-Spares: Global 159.6 mm (24117RN76G) y EU 161.5 mm (24117RN76E). Verificar la versión antes de pedir.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Familia M21/M30/M31: ojo con las copias</h3>
+            <p>La compatibilidad entre M21, M30, M30s y M31 es solo de paneles genéricos Copy/High Copy. Los originales van por modelo: el M30s es HD+ (720×1560) y los demás FHD+.</p>
+          </article>
+
+          <article class="warn-card">
+            <h3>Mi 11 Lite 5G NE — gemelo con módulo propio</h3>
+            <p>Comparte tamaño y resolución con el Mi 11 Lite / 11 Lite 5G, pero GsmServer y All-Spares lo venden como módulo aparte. No montar el del Lite a secas sin verificar.</p>
           </article>
 
           <article class="warn-card">
             <h3>Códigos genéricos de panel (J4651 / flex P4651)</h3>
             <p>No aparecen en ningún catálogo. Solo se identifican con verificaciones reales de taller, probando la pantalla en el equipo.</p>
-          </article>
-
-          <article class="warn-card">
-            <h3>Redmi Note 11 ≠ Redmi Note 11 Pro</h3>
-            <p>Nombres casi iguales, pantallas distintas: 6.43" el Note 11 contra 6.67" el Pro. El módulo del Note 11 / 11S / 12S (grupo G12) NO le sirve al Note 11 Pro.</p>
-          </article>
-
-          <article class="warn-card">
-            <h3>Redmi 12C ≠ Redmi 12</h3>
-            <p>El 12C comparte pantalla con el Redmi 11A y el Poco C55 (grupo G13), pero NO con el Redmi 12 a secas, que lleva una pantalla más grande, de 6.79".</p>
           </article>
         </section>
 
@@ -464,197 +512,2949 @@
           <span class="tag tag-catalogo">Catálogo</span>
           <span class="tag tag-taller">Verificado en taller</span>
         </div>
-        <p style="margin-top:12px">Por ahora todos los datos de este prototipo son de catálogo; las verificaciones de taller se irán sumando.</p>
+        <p style="margin-top:12px">Por ahora todos los datos de esta base son de catálogo; las verificaciones de taller se irán sumando.</p>
       </footer>
     </div>
 
     <script>
       // ---------- Dataset (solo datos de catálogo, verificados) ----------
       var GROUPS = [
-        {
-          id: "G1", brand: "samsung",
-          panel: 'PLS LCD 6.5" · 720×1600',
-          note: "Existen versiones de panel (BOE / CDOT / T) que se venden como repuestos distintos; verificar la versión antes de pedir.",
-          models: [
-            { name: "Galaxy A02", code: "A022" },
-            { name: "Galaxy A12", code: "A125" },
-            { name: "Galaxy A12 Nacho", code: "A127" }
-          ]
-        },
-        {
-          id: "G2", brand: "samsung",
-          panel: 'PLS LCD 6.6" · 1080×2408',
-          note: "Procesadores distintos (Exynos 850 vs Helio G80) pero comparten pantalla según catálogos (versión BOE).",
-          models: [
-            { name: "Galaxy A13 4G", code: "A135" },
-            { name: "Galaxy A13 2022", code: "A137" }
-          ]
-        },
-        {
-          id: "G3", brand: "samsung",
-          panel: 'PLS LCD 6.6" · 1080×2408',
-          note: "Versión BOE.",
-          models: [
-            { name: "Galaxy M13 4G", code: "M135" },
-            { name: "Galaxy A23 4G", code: "A235" }
-          ]
-        },
-        {
-          id: "G4", brand: "samsung",
-          panel: 'PLS LCD 6.5" · 720×1600',
-          note: null,
-          models: [
-            { name: "Galaxy A04s", code: "A047" },
-            { name: "Galaxy A13 5G", code: "A136" }
-          ]
-        },
-        {
-          id: "G5", brand: "samsung",
-          panel: 'PLS LCD 6.6" · 1080×2408',
-          note: null,
-          models: [
-            { name: "Galaxy A14", code: "A145P" }
-          ]
-        },
-        {
-          id: "G6", brand: "xiaomi",
-          panel: 'IPS LCD 6.53" · 720×1600',
-          note: "Códigos de modelo del grupo: M2006C3LG, M2006C3LI, M2006C3LC, M2006C3MG, M2006C3MT.",
-          models: [
-            { name: "Redmi 9A", code: null },
-            { name: "Redmi 9C", code: null },
-            { name: "Redmi 9C NFC", code: null },
-            { name: "Redmi 9AT", code: null },
-            { name: "Redmi 9i", code: null },
-            { name: "Redmi 10A", code: null },
-            { name: "Poco C3", code: null },
-            { name: "Poco C31", code: null }
-          ]
-        },
-        {
-          id: "G7", brand: "xiaomi",
-          panel: 'AMOLED 6.43" · 1080×2400',
-          note: "Códigos de modelo del grupo: M2101K7AI, M2101K7AG, M2101K7BG, 2207117BPG.",
-          models: [
-            { name: "Redmi Note 10 4G", code: null },
-            { name: "Redmi Note 10S", code: null },
-            { name: "Redmi Note 11 SE", code: null },
-            { name: "Poco M5s", code: null }
-          ]
-        },
-        {
-          id: "G8", brand: "xiaomi",
-          panel: 'IPS LCD 6.88" · 720×1640',
-          note: null,
-          models: [
-            { name: "Redmi 14C", code: "2409BRN2CY" },
-            { name: "Poco C75", code: null }
-          ]
-        },
-        {
-          id: "G9", brand: "xiaomi",
-          panel: 'IPS LCD 6.9" · 720×1600',
-          note: null,
-          models: [
-            { name: "Redmi 15C", code: null },
-            { name: "Poco C85", code: null }
-          ]
-        },
-        {
-          id: "G10", brand: "xiaomi",
-          panel: 'IPS LCD 6.71" · 720×1650',
-          note: null,
-          models: [
-            { name: "Redmi 10C", code: null },
-            { name: "Redmi 10 Power", code: null },
-            { name: "Poco C40", code: null }
-          ]
-        },
-        {
-          id: "G11", brand: "samsung",
-          panel: 'Super AMOLED 6.4" · 1080×2340',
-          note: null,
-          models: [
-            { name: "Galaxy A30", code: "A305" },
-            { name: "Galaxy A50", code: "A505" },
-            { name: "Galaxy A50s", code: "A507" }
-          ]
-        },
-        {
-          id: "G12", brand: "xiaomi",
-          panel: 'AMOLED 6.43" · 1080×2400',
-          note: 'Códigos de modelo del grupo: 2201117TG, 2201117SG. Ojo: NO sirve para el Redmi Note 11 Pro, que lleva una pantalla distinta de 6.67".',
-          models: [
-            { name: "Redmi Note 11 4G", code: null },
-            { name: "Redmi Note 11S 4G", code: null },
-            { name: "Redmi Note 12S", code: null },
-            { name: "Poco M4 Pro 4G", code: null }
-          ]
-        },
-        {
-          id: "G13", brand: "xiaomi",
-          panel: 'IPS LCD 6.71" · 720×1650',
-          note: 'Códigos de modelo del grupo: 22120RN86G, 22127PC95I. Ojo: NO es compatible con el Redmi 12 a secas, que lleva otra pantalla de 6.79".',
-          models: [
-            { name: "Redmi 12C", code: null },
-            { name: "Redmi 11A", code: null },
-            { name: "Poco C55", code: null }
-          ]
-        },
-        {
-          id: "G14", brand: "motorola",
-          panel: 'IPS LCD 6.5" · 720×1600',
-          note: null,
-          models: [
-            { name: "Moto G9 Play", code: "XT2083" },
-            { name: "Moto G9", code: "XT2081" },
-            { name: "Moto E7 Plus", code: "XT2081" }
-          ]
-        },
-        {
-          id: "G15", brand: "motorola",
-          panel: 'IPS LCD 6.5" · 720×1600',
-          note: null,
-          models: [
-            { name: "Moto E7 Power", code: "XT2097" },
-            { name: "Moto E7i", code: null },
-            { name: "Moto E7i Power", code: null }
-          ]
-        },
-        {
-          id: "U1", brand: "xiaomi",
-          panel: 'IPS LCD 6.53" · 1080×2340',
-          note: null,
-          models: [
-            { name: "Redmi Note 8 Pro", code: null }
-          ]
-        },
-        {
-          id: "U2", brand: "samsung",
-          panel: 'Super AMOLED 6.4" · 720×1600',
-          note: null,
-          models: [
-            { name: "Galaxy A22 4G", code: "A225" }
-          ]
-        },
-        {
-          id: "U3", brand: "motorola",
-          panel: 'IPS LCD 6.8" · 720×1640',
-          note: null,
-          models: [
-            { name: "Moto G9 Power", code: "XT2091" }
-          ]
-        }
-      ];
+  {
+    "id": "G1",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": "Existen versiones de panel (BOE / CDOT / T) que se venden como repuestos distintos; verificar la versión impresa en el flex antes de pedir. Existe además una versión aftermarket «Universal» que cubre las tres.",
+    "models": [
+      {
+        "name": "Galaxy A02",
+        "code": "A022"
+      },
+      {
+        "name": "Galaxy A12",
+        "code": "A125"
+      },
+      {
+        "name": "Galaxy A12 Nacho",
+        "code": "A127"
+      },
+      {
+        "name": "Galaxy M12",
+        "code": "M127"
+      }
+    ]
+  },
+  {
+    "id": "G2",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": "Dos versiones por tamaño: 160 mm (A025F, «versión pequeña») y 162 mm (A025G, «versión grande»). Medir la pantalla rota antes de pedir.",
+    "models": [
+      {
+        "name": "Galaxy A02s",
+        "code": "A025"
+      },
+      {
+        "name": "Galaxy A03",
+        "code": "A035"
+      },
+      {
+        "name": "Galaxy A03s",
+        "code": "A037"
+      },
+      {
+        "name": "Galaxy M02s",
+        "code": "M025"
+      },
+      {
+        "name": "Galaxy A04e",
+        "code": "A042"
+      }
+    ]
+  },
+  {
+    "id": "G3",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": "Familia HD+ (720×1600), versiones BOE B8 y CDOT. NO confundir con la familia FHD+ del A13 4G (A135/A137), que es otra pantalla.",
+    "models": [
+      {
+        "name": "Galaxy A04s",
+        "code": "A047"
+      },
+      {
+        "name": "Galaxy A13 5G",
+        "code": "A136"
+      },
+      {
+        "name": "Galaxy M13 5G",
+        "code": "M136"
+      }
+    ]
+  },
+  {
+    "id": "G4",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.6\" · 1080×2408",
+    "note": "Familia FHD+ según catálogos (Celuinfo, Polar Tech, Crown). En ficha original conviven 60 Hz (A13) y 120 Hz (A23 5G/M23/M33): la compatibilidad es del panel de repuesto — verificar el flex antes de montar. Versión BOE B6 documentada para A135/M135.",
+    "models": [
+      {
+        "name": "Galaxy A13 4G",
+        "code": "A135"
+      },
+      {
+        "name": "Galaxy A13 2022",
+        "code": "A137"
+      },
+      {
+        "name": "Galaxy M13 4G",
+        "code": "M135"
+      },
+      {
+        "name": "Galaxy F13",
+        "code": "E135"
+      },
+      {
+        "name": "Galaxy A23 4G",
+        "code": "A235"
+      },
+      {
+        "name": "Galaxy A23 5G",
+        "code": "A236"
+      },
+      {
+        "name": "Galaxy M23 5G",
+        "code": "M236"
+      },
+      {
+        "name": "Galaxy F23 5G",
+        "code": "E236"
+      },
+      {
+        "name": "Galaxy M33 5G",
+        "code": "M336"
+      }
+    ]
+  },
+  {
+    "id": "G5",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.6\" · 1080×2408",
+    "note": "Pedir la versión de conector largo de 48 pines. Ojo: el Galaxy A14 A145P NO entra en esta familia — su módulo se vende aparte.",
+    "models": [
+      {
+        "name": "Galaxy A14 4G",
+        "code": "A145F"
+      },
+      {
+        "name": "Galaxy A14 4G (Latam)",
+        "code": "A145M"
+      },
+      {
+        "name": "Galaxy A14 5G",
+        "code": "A146"
+      },
+      {
+        "name": "Galaxy M14 5G",
+        "code": "M146"
+      },
+      {
+        "name": "Galaxy F14 5G",
+        "code": "E146"
+      }
+    ]
+  },
+  {
+    "id": "G6",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2340 · 90 Hz",
+    "note": "Service Pack GH82-33637A / GH82-33638A / GH82-33831A. En calidades TFT/Incell de repuesto se pierde la huella en pantalla y el sensor de proximidad.",
+    "models": [
+      {
+        "name": "Galaxy A15 4G",
+        "code": "A155"
+      },
+      {
+        "name": "Galaxy A15 5G",
+        "code": "A156"
+      },
+      {
+        "name": "Galaxy M15 5G",
+        "code": "M156"
+      }
+    ]
+  },
+  {
+    "id": "G7",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2340 · 90 Hz",
+    "note": "Un mismo repuesto para 4G y 5G. En copias TFT el tamaño puede variar (6.46\" frente a 6.66\"): comprobar antes de pegar.",
+    "models": [
+      {
+        "name": "Galaxy A16 4G",
+        "code": "A165"
+      },
+      {
+        "name": "Galaxy A16 5G",
+        "code": "A166"
+      }
+    ]
+  },
+  {
+    "id": "G8",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400",
+    "note": "En ficha original el A525 es 90 Hz y el A528 120 Hz, pero el módulo de repuesto es el mismo. En calidades Incell/TFT se pierde la huella en pantalla.",
+    "models": [
+      {
+        "name": "Galaxy A52 4G",
+        "code": "A525"
+      },
+      {
+        "name": "Galaxy A52 5G",
+        "code": "A526"
+      },
+      {
+        "name": "Galaxy A52s 5G",
+        "code": "A528"
+      }
+    ]
+  },
+  {
+    "id": "G9",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1080×2340",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A30",
+        "code": "A305"
+      },
+      {
+        "name": "Galaxy A50",
+        "code": "A505"
+      },
+      {
+        "name": "Galaxy A50s",
+        "code": "A507"
+      }
+    ]
+  },
+  {
+    "id": "G10",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.4\" · 720×1560",
+    "note": "Hay versión USA (A115U/A115A, M115U) e internacional (A115F/A115M): no mezclar al pedir con marco.",
+    "models": [
+      {
+        "name": "Galaxy A11",
+        "code": "A115"
+      },
+      {
+        "name": "Galaxy M11",
+        "code": "M115"
+      }
+    ]
+  },
+  {
+    "id": "G11",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2400",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A72 4G",
+        "code": "A725"
+      },
+      {
+        "name": "Galaxy A72 5G",
+        "code": "A726"
+      }
+    ]
+  },
+  {
+    "id": "G12",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.6\" · 720×1600",
+    "note": "Service Pack GH82-24376A / GH82-24375A.",
+    "models": [
+      {
+        "name": "Galaxy A42 5G",
+        "code": "A426"
+      },
+      {
+        "name": "Galaxy M42 5G",
+        "code": "M426"
+      }
+    ]
+  },
+  {
+    "id": "G13",
+    "brand": "samsung",
+    "panel": "Super AMOLED Plus 6.7\" · 1080×2400",
+    "note": "Service Pack GH82-25478A / GH82-25649A.",
+    "models": [
+      {
+        "name": "Galaxy M62",
+        "code": "M625"
+      },
+      {
+        "name": "Galaxy F62",
+        "code": "E625"
+      }
+    ]
+  },
+  {
+    "id": "G14",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S20 FE 4G",
+        "code": "G780"
+      },
+      {
+        "name": "Galaxy S20 FE 5G",
+        "code": "G781"
+      }
+    ]
+  },
+  {
+    "id": "G15",
+    "brand": "samsung",
+    "panel": "Super AMOLED Plus 6.7\" · 1080×2400",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy Note 20 4G",
+        "code": "N980"
+      },
+      {
+        "name": "Galaxy Note 20 5G",
+        "code": "N981"
+      }
+    ]
+  },
+  {
+    "id": "G16",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1080×2340",
+    "note": "OJO: la compatibilidad es SOLO de paneles genéricos Copy/High Copy (marco «universal»). Los originales NO son intercambiables: el M30s es 720×1560 y los demás 1080×2340, y se venden por modelo.",
+    "models": [
+      {
+        "name": "Galaxy M21",
+        "code": "M215"
+      },
+      {
+        "name": "Galaxy M30",
+        "code": "M305"
+      },
+      {
+        "name": "Galaxy M30s",
+        "code": "M307"
+      },
+      {
+        "name": "Galaxy M31",
+        "code": "M315"
+      }
+    ]
+  },
+  {
+    "id": "G17",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 720×1560",
+    "note": "Compatibilidad según GsmServer en calidades Copy/TFT y OLED de repuesto.",
+    "models": [
+      {
+        "name": "Galaxy A20",
+        "code": "A205"
+      },
+      {
+        "name": "Galaxy M10s",
+        "code": "M107"
+      }
+    ]
+  },
+  {
+    "id": "G18",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.6\" · 1080×2408",
+    "note": "Service Pack GH81-20694A. El «A22s 5G» usa el mismo código A226. Ojo: los Service Pack nuevos pueden exigir Android 13+ por drivers.",
+    "models": [
+      {
+        "name": "Galaxy A22 5G",
+        "code": "A226"
+      },
+      {
+        "name": "Galaxy F42 5G",
+        "code": "E426"
+      }
+    ]
+  },
+  {
+    "id": "G19",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.7\" · 720×1600 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A06 5G",
+        "code": "A066"
+      },
+      {
+        "name": "Galaxy M06 5G",
+        "code": "M066"
+      }
+    ]
+  },
+  {
+    "id": "G20",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.0\" · 720×1520",
+    "note": "Código impreso en el módulo: BG610ABE.",
+    "models": [
+      {
+        "name": "Galaxy J4 Core",
+        "code": "J410"
+      },
+      {
+        "name": "Galaxy J4+",
+        "code": "J415"
+      },
+      {
+        "name": "Galaxy J6+",
+        "code": "J610"
+      }
+    ]
+  },
+  {
+    "id": "G21",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.53\" · 720×1600",
+    "note": "Flex impreso en combos de mayorista: «RED 9A/9». Las variantes Sport/Active/9i salen de combos universales de mayoristas chinos.",
+    "models": [
+      {
+        "name": "Redmi 9A",
+        "code": "M2006C3LG"
+      },
+      {
+        "name": "Redmi 9AT",
+        "code": "M2006C3LVG"
+      },
+      {
+        "name": "Redmi 9A Sport",
+        "code": "M2006C3LI"
+      },
+      {
+        "name": "Redmi 9i",
+        "code": "M2006C3LI"
+      },
+      {
+        "name": "Redmi 9i Sport",
+        "code": null
+      },
+      {
+        "name": "Redmi 9C",
+        "code": "M2006C3MG"
+      },
+      {
+        "name": "Redmi 9C NFC",
+        "code": "M2006C3MT"
+      },
+      {
+        "name": "Redmi 9 Active",
+        "code": null
+      },
+      {
+        "name": "Redmi 10A",
+        "code": "220233L2G"
+      },
+      {
+        "name": "Poco C3",
+        "code": "M2006C3MI"
+      },
+      {
+        "name": "Poco C31",
+        "code": "211033MI"
+      }
+    ]
+  },
+  {
+    "id": "G22",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.3\" · 1080×2340",
+    "note": "Códigos de los modelos: M1901F7H, M1901F7I.",
+    "models": [
+      {
+        "name": "Redmi Note 7",
+        "code": "M1901F7G"
+      },
+      {
+        "name": "Redmi Note 7S",
+        "code": "M1901F7S"
+      },
+      {
+        "name": "Redmi Note 7 Pro",
+        "code": "M1901F7S"
+      }
+    ]
+  },
+  {
+    "id": "G23",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.22\" · 720×1520",
+    "note": "Códigos de los modelos: M1908C3IG, M1908C3IH, M1908C3KH.",
+    "models": [
+      {
+        "name": "Redmi 8",
+        "code": "M1908C3IC"
+      },
+      {
+        "name": "Redmi 8A",
+        "code": "M1908C3KG"
+      }
+    ]
+  },
+  {
+    "id": "G24",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.53\" · 1080×2340",
+    "note": "Códigos de los modelos: M2004J19C.",
+    "models": [
+      {
+        "name": "Redmi 9",
+        "code": "M2004J19G"
+      },
+      {
+        "name": "Redmi 9 Prime",
+        "code": "M2004J19PI"
+      },
+      {
+        "name": "Poco M2",
+        "code": "M2004J19PI"
+      }
+    ]
+  },
+  {
+    "id": "G25",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.53\" · 1080×2340",
+    "note": "No confundir con el grupo Poco M3 / Redmi 9T: el «Note 9 4G» chino va en ese otro grupo. Códigos de los modelos: M2003J15SS, M2003J15SC.",
+    "models": [
+      {
+        "name": "Redmi Note 9",
+        "code": "M2003J15SG"
+      },
+      {
+        "name": "Redmi 10X 4G",
+        "code": "M2003J15SC"
+      }
+    ]
+  },
+  {
+    "id": "G26",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.67\" · 1080×2400",
+    "note": "El «Note 10 Lite» de este grupo es el Redmi indio (renombre del Note 9S), NO el Mi Note 10 Lite, que es otro teléfono con pantalla AMOLED curva.",
+    "models": [
+      {
+        "name": "Redmi Note 9S",
+        "code": "M2003J6A1G"
+      },
+      {
+        "name": "Redmi Note 9 Pro",
+        "code": "M2003J6B2G"
+      },
+      {
+        "name": "Redmi Note 9 Pro Max",
+        "code": "M2003J6B1I"
+      },
+      {
+        "name": "Redmi Note 10 Lite (India)",
+        "code": "21091119SI"
+      },
+      {
+        "name": "Poco M2 Pro",
+        "code": "M2003J6CI"
+      }
+    ]
+  },
+  {
+    "id": "G27",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.53\" · 1080×2340",
+    "note": "Es el «Note 9» 5G: no mezclar con el Note 9 4G global ni con el Note 9 4G chino (grupo Poco M3).",
+    "models": [
+      {
+        "name": "Redmi Note 9 5G",
+        "code": "M2007J22C"
+      },
+      {
+        "name": "Redmi Note 9T",
+        "code": "M2007J22G"
+      }
+    ]
+  },
+  {
+    "id": "G28",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.53\" · 1080×2340",
+    "note": "Códigos de los modelos: M2010J19CI, M2010J19CT, M2010J19SY.",
+    "models": [
+      {
+        "name": "Poco M3",
+        "code": "M2010J19CG"
+      },
+      {
+        "name": "Redmi 9T",
+        "code": "M2010J19SG"
+      },
+      {
+        "name": "Redmi Note 9 4G (China)",
+        "code": "M2010J19SC"
+      },
+      {
+        "name": "Redmi 9 Power",
+        "code": "M2010J19SI"
+      }
+    ]
+  },
+  {
+    "id": "G29",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.67\" · 1080×2400",
+    "note": "Mismo panel para X3/X3 NFC/X3 Pro aunque cambian las cámaras; verificar versión con marco por el tamaño del auricular. Códigos de los modelos: M2102J20SI.",
+    "models": [
+      {
+        "name": "Poco X3",
+        "code": "MZB07Z0IN"
+      },
+      {
+        "name": "Poco X3 NFC",
+        "code": "M2007J20CG"
+      },
+      {
+        "name": "Poco X3 Pro",
+        "code": "M2102J20SG"
+      },
+      {
+        "name": "Mi 10T Lite",
+        "code": "M2007J17G"
+      },
+      {
+        "name": "Redmi Note 9 Pro 5G",
+        "code": "M2007J17C"
+      }
+    ]
+  },
+  {
+    "id": "G30",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.67\" · 1080×2400 · 144 Hz",
+    "note": "No confundir con el Mi 10T Lite, que va en el grupo del Poco X3. Códigos de los modelos: M2007J3SY, M2007J3SI.",
+    "models": [
+      {
+        "name": "Mi 10T",
+        "code": "M2007J3SG"
+      },
+      {
+        "name": "Mi 10T Pro",
+        "code": "M2007J3SP"
+      },
+      {
+        "name": "Redmi K30S",
+        "code": "M2007J3SC"
+      }
+    ]
+  },
+  {
+    "id": "G31",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.39\" · 1080×2340",
+    "note": "Cámara emergente; el panel es el mismo en los cuatro. Códigos de los modelos: M1903F10I, M1903F11I.",
+    "models": [
+      {
+        "name": "Mi 9T",
+        "code": "M1903F10G"
+      },
+      {
+        "name": "Mi 9T Pro",
+        "code": "M1903F11G"
+      },
+      {
+        "name": "Redmi K20",
+        "code": null
+      },
+      {
+        "name": "Redmi K20 Pro",
+        "code": null
+      }
+    ]
+  },
+  {
+    "id": "G32",
+    "brand": "xiaomi",
+    "panel": "Super AMOLED 6.67\" · 1080×2400",
+    "note": "Con repuestos TFT baratos se pierde la huella en pantalla; solo OLED/AMOLED la mantiene.",
+    "models": [
+      {
+        "name": "Poco F2 Pro",
+        "code": "M2004J11G"
+      },
+      {
+        "name": "Redmi K30 Pro",
+        "code": "M2004J11G"
+      }
+    ]
+  },
+  {
+    "id": "G33",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Algunos vendedores amplían el mismo panel a K40 Pro, K40S, Mi 11X, Mi 11X Pro y Black Shark 4 (por confirmar: GsmServer no los lista).",
+    "models": [
+      {
+        "name": "Poco F3",
+        "code": "M2012K11AG"
+      },
+      {
+        "name": "Poco F4",
+        "code": "22021211RG"
+      },
+      {
+        "name": "Redmi K40",
+        "code": "M2012K11AC"
+      },
+      {
+        "name": "Mi 11i",
+        "code": "M2012K11G"
+      }
+    ]
+  },
+  {
+    "id": "G34",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.43\" · 1080×2400",
+    "note": "Ojo: existe otro «11 SE» chino con pantalla IPS que va en el grupo del Note 10 5G — son teléfonos distintos con el mismo nombre. Códigos de los modelos: M2101K7AG, M2101K7BI.",
+    "models": [
+      {
+        "name": "Redmi Note 10 4G",
+        "code": "M2101K7AI"
+      },
+      {
+        "name": "Redmi Note 10S",
+        "code": "M2101K7BG"
+      },
+      {
+        "name": "Redmi 11 SE (India)",
+        "code": "M2101K7BI"
+      },
+      {
+        "name": "Poco M5s",
+        "code": "2207117BPG"
+      }
+    ]
+  },
+  {
+    "id": "G35",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.5\" · 1080×2400",
+    "note": "El Note 11 SE chino entra por listados de mayorista; TechComponentes vende su Service Pack por separado (por confirmar). Códigos de los modelos: M2103K19I.",
+    "models": [
+      {
+        "name": "Redmi Note 10 5G",
+        "code": "M2103K19G"
+      },
+      {
+        "name": "Redmi Note 10T 5G",
+        "code": "M2103K19Y"
+      },
+      {
+        "name": "Poco M3 Pro 5G",
+        "code": "M2103K19PG"
+      },
+      {
+        "name": "Redmi Note 11 SE (China)",
+        "code": "M2103K19C"
+      }
+    ]
+  },
+  {
+    "id": "G36",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.58\" · 1080×2408",
+    "note": "Listados de redes añaden Redmi Note 11R y Redmi 11 Prime 5G (por confirmar: GsmServer no los incluye).",
+    "models": [
+      {
+        "name": "Redmi 10 5G",
+        "code": "22041219G"
+      },
+      {
+        "name": "Redmi Note 11E",
+        "code": "22041219C"
+      },
+      {
+        "name": "Poco M4 5G",
+        "code": "22041219PG"
+      },
+      {
+        "name": "Poco M5",
+        "code": "22071219CG"
+      }
+    ]
+  },
+  {
+    "id": "G37",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.6\" · 1080×2400",
+    "note": "Es la familia Dimensity del Note 11 chino: NO es el Note 11 4G global (AMOLED 6.43\") aunque se llamen casi igual.",
+    "models": [
+      {
+        "name": "Redmi Note 11 5G (China)",
+        "code": "21091116AC"
+      },
+      {
+        "name": "Redmi Note 11S 5G",
+        "code": "22031116BG"
+      },
+      {
+        "name": "Redmi Note 11T 5G",
+        "code": "21091116AI"
+      },
+      {
+        "name": "Poco M4 Pro 5G",
+        "code": "21091116AG"
+      }
+    ]
+  },
+  {
+    "id": "G38",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.43\" · 1080×2400",
+    "note": "Ojo: NO sirve para el Redmi Note 11 Pro, que lleva una pantalla distinta de 6.67\". Códigos de los modelos: 2201117TI.",
+    "models": [
+      {
+        "name": "Redmi Note 11",
+        "code": "2201117TG"
+      },
+      {
+        "name": "Redmi Note 11S",
+        "code": "2201117SG"
+      },
+      {
+        "name": "Redmi Note 12S",
+        "code": "2303CRA44A"
+      },
+      {
+        "name": "Poco M4 Pro 4G",
+        "code": "2201117PG"
+      }
+    ]
+  },
+  {
+    "id": "G39",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.5\" · 1080×2400",
+    "note": "El Note 11 tiene hasta 3 versiones de pantalla según mercado; este grupo es solo la versión IPS china (21121119SC). Códigos de los modelos: 21061119DG, 21061119AL.",
+    "models": [
+      {
+        "name": "Redmi 10",
+        "code": "21061119AG"
+      },
+      {
+        "name": "Redmi 10 (2022)",
+        "code": "21121119VL"
+      },
+      {
+        "name": "Redmi 10 Prime",
+        "code": "21061119BI"
+      },
+      {
+        "name": "Redmi 10 Prime 2022",
+        "code": null
+      },
+      {
+        "name": "Redmi Note 11 4G (China)",
+        "code": "21121119SC"
+      }
+    ]
+  },
+  {
+    "id": "G40",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Sin marco parece un solo panel (celuinfo lo unifica); All-Spares vende SKU más estrechos por modelo: al pedir con marco, verificar versión.",
+    "models": [
+      {
+        "name": "Redmi Note 10 Pro",
+        "code": "M2101K6G"
+      },
+      {
+        "name": "Redmi Note 10 Pro Max",
+        "code": "M2101K6I"
+      },
+      {
+        "name": "Redmi Note 11 Pro",
+        "code": "2201116TG"
+      },
+      {
+        "name": "Redmi Note 11 Pro 5G",
+        "code": "2201116SG"
+      },
+      {
+        "name": "Redmi Note 11 Pro+ 5G",
+        "code": "21091116UG"
+      },
+      {
+        "name": "Redmi Note 11E Pro",
+        "code": "2201116SC"
+      },
+      {
+        "name": "Redmi Note 12 Pro 4G",
+        "code": "2209116AG"
+      },
+      {
+        "name": "Poco X4 Pro 5G",
+        "code": "2201116PG"
+      }
+    ]
+  },
+  {
+    "id": "G41",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Caso raro y útil: aquí el 4G y el 5G SÍ comparten panel. No confundir con el Note 12 Pro 4G (grupo Note 10 Pro). Códigos de los modelos: 23021RAA2Y, 23027RAD4I, 23028RA60L, 22111317I, 22111317PI.",
+    "models": [
+      {
+        "name": "Redmi Note 12 4G",
+        "code": "23021RAAEG"
+      },
+      {
+        "name": "Redmi Note 12 5G",
+        "code": "22111317G"
+      },
+      {
+        "name": "Poco X5 5G",
+        "code": "22111317PG"
+      }
+    ]
+  },
+  {
+    "id": "G42",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "El Note 12 Pro 4G NO va aquí: va en el grupo del Note 10 Pro. Códigos de los modelos: 22101316I, 22101316C, 22101316UG, 22101320I.",
+    "models": [
+      {
+        "name": "Redmi Note 12 Pro 5G",
+        "code": "22101316G"
+      },
+      {
+        "name": "Redmi Note 12 Pro+ 5G",
+        "code": "22101316UCP"
+      },
+      {
+        "name": "Poco X5 Pro 5G",
+        "code": "22101320G"
+      }
+    ]
+  },
+  {
+    "id": "G43",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Códigos de los modelos: 2312FPCA6G.",
+    "models": [
+      {
+        "name": "Redmi Note 13 Pro 4G",
+        "code": "23117RA68G"
+      },
+      {
+        "name": "Poco M6 Pro 4G",
+        "code": "2313FPCA6G"
+      },
+      {
+        "name": "Redmi Note 14S",
+        "code": "2502FRA65G"
+      }
+    ]
+  },
+  {
+    "id": "G44",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1220×2712",
+    "note": "NO sirve para el Poco X6 Pro: misma resolución pero otro módulo. Códigos de los modelos: 2312DRA50C, 2312DRA50I.",
+    "models": [
+      {
+        "name": "Redmi Note 13 Pro 5G",
+        "code": "2312DRA50G"
+      },
+      {
+        "name": "Poco X6 5G",
+        "code": "23122PCD1G"
+      }
+    ]
+  },
+  {
+    "id": "G45",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Códigos de los modelos: 2312DRAABI, 23049PCD8I.",
+    "models": [
+      {
+        "name": "Redmi Note 13 5G",
+        "code": "2312DRAABG"
+      },
+      {
+        "name": "Redmi Note 12 Turbo",
+        "code": "23049RAD8C"
+      },
+      {
+        "name": "Poco F5",
+        "code": "23049PCD8G"
+      }
+    ]
+  },
+  {
+    "id": "G46",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1220×2712",
+    "note": "Los mayoristas unifican los cuatro; All-Spares/GsmServer venden el Poco F6 como SKU propio: sin marco probablemente común, con marco verificar. Códigos de los modelos: 2311DRK48I, 24069PC21I.",
+    "models": [
+      {
+        "name": "Poco X6 Pro 5G",
+        "code": "2311DRK48G"
+      },
+      {
+        "name": "Redmi K70E",
+        "code": "2311DRK48C"
+      },
+      {
+        "name": "Redmi Turbo 3",
+        "code": "24069RA21C"
+      },
+      {
+        "name": "Poco F6",
+        "code": "24069PC21G"
+      }
+    ]
+  },
+  {
+    "id": "G47",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1440×3200",
+    "note": "El único grupo QHD+ de Xiaomi aquí: no confundir con el Poco F5 (1080p).",
+    "models": [
+      {
+        "name": "Poco F5 Pro",
+        "code": "23013PC75G"
+      },
+      {
+        "name": "Redmi K60",
+        "code": "23013RK75C"
+      },
+      {
+        "name": "Redmi K60 Pro",
+        "code": null
+      }
+    ]
+  },
+  {
+    "id": "G48",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Existen dos tamaños de cristal: Global 159.6 mm y EU 161.5 mm (24117RN76E), NO compatibles entre sí. Verificar versión antes de pedir. Códigos de los modelos: 24117RN76O.",
+    "models": [
+      {
+        "name": "Redmi Note 14 4G (Global)",
+        "code": "24117RN76G"
+      },
+      {
+        "name": "Redmi Note 14 5G",
+        "code": "24094RAD4G"
+      },
+      {
+        "name": "Poco M7 Pro 5G",
+        "code": "24094RAD4G"
+      }
+    ]
+  },
+  {
+    "id": "G49",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1220×2712",
+    "note": "Panel curvo.",
+    "models": [
+      {
+        "name": "Redmi Note 14 Pro 5G",
+        "code": "24090RA29G"
+      },
+      {
+        "name": "Redmi Note 14 Pro+ 5G",
+        "code": "24115RA8EG"
+      },
+      {
+        "name": "Poco X7",
+        "code": "24095PCADG"
+      }
+    ]
+  },
+  {
+    "id": "G50",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.79\" · 1080×2460",
+    "note": "Familia «universal» del Redmi 12/13 (GsmServer lista el núcleo 12/12 5G/M6 Pro 5G; All-Spares amplía al resto). El código del Redmi 13x está por confirmar.",
+    "models": [
+      {
+        "name": "Redmi 12",
+        "code": "23053RN02A"
+      },
+      {
+        "name": "Redmi 12 5G",
+        "code": "23076RN4BI"
+      },
+      {
+        "name": "Redmi 13",
+        "code": "2404ARN45A"
+      },
+      {
+        "name": "Redmi 13 5G",
+        "code": "2406ERN9SA"
+      },
+      {
+        "name": "Redmi 13x",
+        "code": null
+      },
+      {
+        "name": "Redmi Note 12R",
+        "code": "23076RA4BC"
+      },
+      {
+        "name": "Redmi Note 13R",
+        "code": "2406ERN9DA"
+      },
+      {
+        "name": "Poco M6 Pro 5G",
+        "code": "23076PC4BI"
+      },
+      {
+        "name": "Poco M6 Plus 5G",
+        "code": null
+      },
+      {
+        "name": "Poco M6 4G",
+        "code": "2404APC5FG"
+      }
+    ]
+  },
+  {
+    "id": "G51",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.74\" · 720×1600",
+    "note": "Algunos catálogos venden el 13C 5G como pantalla propia (por confirmar). Códigos de los modelos: 23108RN04Y.",
+    "models": [
+      {
+        "name": "Redmi 13C",
+        "code": "23100RN82L"
+      },
+      {
+        "name": "Redmi 13C 5G",
+        "code": "23124RN87C"
+      },
+      {
+        "name": "Redmi 13R",
+        "code": "23124RN87I"
+      },
+      {
+        "name": "Poco C65",
+        "code": "2310FPCA4G"
+      },
+      {
+        "name": "Poco M6 5G",
+        "code": "23128PC33I"
+      }
+    ]
+  },
+  {
+    "id": "G52",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.88\" · 720×1640",
+    "note": "Poco C71 y Poco M7 5G aparecen en un solo catálogo dentro de esta familia (por confirmar, no cargados). Códigos de los modelos: 2409BRN2CG, 2409BRN2CA.",
+    "models": [
+      {
+        "name": "Redmi 14C",
+        "code": "2409BRN2CY"
+      },
+      {
+        "name": "Redmi 14C 5G",
+        "code": "2411DRN47C"
+      },
+      {
+        "name": "Redmi 14R 5G",
+        "code": null
+      },
+      {
+        "name": "Redmi A3 Pro",
+        "code": null
+      },
+      {
+        "name": "Redmi A4 5G",
+        "code": null
+      },
+      {
+        "name": "Poco C75",
+        "code": "2410FPCC5G"
+      },
+      {
+        "name": "Poco C75 5G",
+        "code": null
+      }
+    ]
+  },
+  {
+    "id": "G53",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.9\" · 720×1600",
+    "note": null,
+    "models": [
+      {
+        "name": "Redmi 15C",
+        "code": "25078RA3EA"
+      },
+      {
+        "name": "Poco C85",
+        "code": "25078PC3EG"
+      }
+    ]
+  },
+  {
+    "id": "G54",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.71\" · 720×1650",
+    "note": "Códigos de los modelos: 220333QBI, 220333QNY.",
+    "models": [
+      {
+        "name": "Redmi 10C",
+        "code": "220333QAG"
+      },
+      {
+        "name": "Redmi 10 Power",
+        "code": "220333QL"
+      },
+      {
+        "name": "Poco C40",
+        "code": "220333QPG"
+      }
+    ]
+  },
+  {
+    "id": "G55",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.71\" · 720×1650",
+    "note": "Ojo: NO es compatible con el Redmi 12 a secas (6.79\") ni con el Redmi 13C (6.74\"). Códigos de los modelos: 22120RN86I, 22126RN91Y.",
+    "models": [
+      {
+        "name": "Redmi 12C",
+        "code": "22120RN86G"
+      },
+      {
+        "name": "Redmi 11A",
+        "code": "2212ARNC4L"
+      },
+      {
+        "name": "Poco C55",
+        "code": "22127PC95I"
+      }
+    ]
+  },
+  {
+    "id": "G56",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.52\" · 720×1600",
+    "note": "TechComponentes vende los Service Pack de A1/A1+ y A2/A2+ por separado (marcos distintos); el panel suelto se anuncia común A1/A2 en mayoristas.",
+    "models": [
+      {
+        "name": "Redmi A1",
+        "code": "220733SG"
+      },
+      {
+        "name": "Redmi A1+",
+        "code": "220733SI"
+      },
+      {
+        "name": "Redmi A2",
+        "code": "23028RN4DG"
+      },
+      {
+        "name": "Redmi A2+",
+        "code": "23028RN4DI"
+      }
+    ]
+  },
+  {
+    "id": "G57",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.71\" · 720×1650",
+    "note": "No confundir el Redmi A3 con el Mi A3 (AMOLED con huella en pantalla): son teléfonos distintos. Códigos de los modelos: 23129RN51H.",
+    "models": [
+      {
+        "name": "Redmi A3",
+        "code": "23129RN51X"
+      },
+      {
+        "name": "Redmi A3x",
+        "code": "24048RN6CG"
+      },
+      {
+        "name": "Poco C61",
+        "code": "2312BPC51H"
+      }
+    ]
+  },
+  {
+    "id": "G58",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.55\" · 1080×2400",
+    "note": "Código de panel impreso: #WM6556Z21-1. Ojo: el Mi 11 Lite 5G NE va aparte (ver únicas). Códigos de los modelos: M2101K9AI.",
+    "models": [
+      {
+        "name": "Mi 11 Lite",
+        "code": "M2101K9AG"
+      },
+      {
+        "name": "Mi 11 Lite 5G",
+        "code": "M2101K9G"
+      }
+    ]
+  },
+  {
+    "id": "G59",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.6\" · 1080×2400 · 144 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Redmi Note 11T Pro",
+        "code": "22041216UC"
+      },
+      {
+        "name": "Redmi Note 11T Pro+",
+        "code": "22041216UG"
+      },
+      {
+        "name": "Poco X4 GT",
+        "code": "22041216UG"
+      }
+    ]
+  },
+  {
+    "id": "G60",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Códigos de los modelos: 2107113SI.",
+    "models": [
+      {
+        "name": "Mi 11T",
+        "code": "21081111RG"
+      },
+      {
+        "name": "Mi 11T Pro",
+        "code": "2107113SG"
+      },
+      {
+        "name": "Poco F4 GT",
+        "code": "21121210G"
+      }
+    ]
+  },
+  {
+    "id": "G61",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2340 (curvo)",
+    "note": "TechComponentes distingue versión de flex «S» (oro): verificar la letra del flex antes de pedir.",
+    "models": [
+      {
+        "name": "Mi 10",
+        "code": "M2001J2G"
+      },
+      {
+        "name": "Mi 10 Pro",
+        "code": "M2001J2I"
+      }
+    ]
+  },
+  {
+    "id": "G62",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1220×2712",
+    "note": null,
+    "models": [
+      {
+        "name": "Mi 13T",
+        "code": "2306EPN60G"
+      },
+      {
+        "name": "Mi 13T Pro",
+        "code": "2306EPN60I"
+      }
+    ]
+  },
+  {
+    "id": "G63",
+    "brand": "motorola",
+    "panel": "IPS LCD 6.5\" · 720×1600",
+    "note": null,
+    "models": [
+      {
+        "name": "Moto G9 Play",
+        "code": "XT2083"
+      },
+      {
+        "name": "Moto G9",
+        "code": "XT2081"
+      },
+      {
+        "name": "Moto E7 Plus",
+        "code": "XT2081"
+      }
+    ]
+  },
+  {
+    "id": "G64",
+    "brand": "motorola",
+    "panel": "IPS LCD 6.5\" · 720×1600",
+    "note": null,
+    "models": [
+      {
+        "name": "Moto E7 Power",
+        "code": "XT2097"
+      },
+      {
+        "name": "Moto E7i",
+        "code": null
+      },
+      {
+        "name": "Moto E7i Power",
+        "code": null
+      }
+    ]
+  },
+  {
+    "id": "U1",
+    "brand": "samsung",
+    "panel": "TFT LCD 5.7\" · 720×1520",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A01",
+        "code": "A015"
+      }
+    ]
+  },
+  {
+    "id": "U2",
+    "brand": "samsung",
+    "panel": "TFT LCD 5.3\" · 720×1480",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A01 Core",
+        "code": "A013"
+      }
+    ]
+  },
+  {
+    "id": "U3",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": "Una lista mayorista china lo agrupa con la familia A12, pero los catálogos de Latinoamérica venden su módulo propio (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy A03 Core",
+        "code": "A032"
+      }
+    ]
+  },
+  {
+    "id": "U4",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A04",
+        "code": "A045"
+      }
+    ]
+  },
+  {
+    "id": "U5",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.7\" · 720×1600",
+    "note": "Algún mayorista lo vende junto al A06 (misma ficha), pero TechComponentes e IKREA los venden por separado (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy A05",
+        "code": "A055"
+      }
+    ]
+  },
+  {
+    "id": "U6",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.7\" · 1080×2400 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A05s",
+        "code": "A057"
+      }
+    ]
+  },
+  {
+    "id": "U7",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.7\" · 720×1600",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A06 4G",
+        "code": "A065"
+      }
+    ]
+  },
+  {
+    "id": "U8",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.2\" · 720×1520",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A10",
+        "code": "A105"
+      }
+    ]
+  },
+  {
+    "id": "U9",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.2\" · 720×1520",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A10s",
+        "code": "A107"
+      }
+    ]
+  },
+  {
+    "id": "U10",
+    "brand": "samsung",
+    "panel": "TFT LCD 5.8\" · 720×1560",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A20e",
+        "code": "A202"
+      }
+    ]
+  },
+  {
+    "id": "U11",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.5\" · 720×1560",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A20s",
+        "code": "A207"
+      }
+    ]
+  },
+  {
+    "id": "U12",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": "Service Pack GH82-22988A.",
+    "models": [
+      {
+        "name": "Galaxy A21s",
+        "code": "A217"
+      }
+    ]
+  },
+  {
+    "id": "U13",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 720×1600 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A22 4G",
+        "code": "A225"
+      }
+    ]
+  },
+  {
+    "id": "U14",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2340 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A24 4G",
+        "code": "A245"
+      }
+    ]
+  },
+  {
+    "id": "U15",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A25 5G",
+        "code": "A256"
+      }
+    ]
+  },
+  {
+    "id": "U16",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2340 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A26 5G",
+        "code": "A266"
+      }
+    ]
+  },
+  {
+    "id": "U17",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.6\" · 1080×2408",
+    "note": "NO entra en la familia A14 (A145F/A145M/A146/M146/F146): su módulo se vende aparte. Gemelo por fuera del A145F, con procesador distinto (Helio G80).",
+    "models": [
+      {
+        "name": "Galaxy A14 (MediaTek)",
+        "code": "A145P"
+      }
+    ]
+  },
+  {
+    "id": "U18",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 720×1560",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A30s",
+        "code": "A307"
+      }
+    ]
+  },
+  {
+    "id": "U19",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1080×2400",
+    "note": "Misma ficha que A32 4G y M32, pero los catálogos venden tres módulos distintos: no cruzarlos sin verificar en taller.",
+    "models": [
+      {
+        "name": "Galaxy A31",
+        "code": "A315"
+      }
+    ]
+  },
+  {
+    "id": "U20",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1080×2400 · 90 Hz",
+    "note": "Misma ficha que A31 y M32, pero los catálogos venden tres módulos distintos: no cruzarlos sin verificar en taller.",
+    "models": [
+      {
+        "name": "Galaxy A32 4G",
+        "code": "A325"
+      }
+    ]
+  },
+  {
+    "id": "U21",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.5\" · 720×1600",
+    "note": "Versiones CDOT y V00 T. Un Service Pack italiano lo lista junto a A125/M127 (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy A32 5G",
+        "code": "A326"
+      }
+    ]
+  },
+  {
+    "id": "U22",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1080×2400 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A33 5G",
+        "code": "A336"
+      }
+    ]
+  },
+  {
+    "id": "U23",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.6\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A34 5G",
+        "code": "A346"
+      }
+    ]
+  },
+  {
+    "id": "U24",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.6\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A35 5G",
+        "code": "A356"
+      }
+    ]
+  },
+  {
+    "id": "U25",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A36 5G",
+        "code": "A366"
+      }
+    ]
+  },
+  {
+    "id": "U26",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.9\" · 1080×2340",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A40",
+        "code": "A405"
+      }
+    ]
+  },
+  {
+    "id": "U27",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.1\" · 1080×2400",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A41",
+        "code": "A415"
+      }
+    ]
+  },
+  {
+    "id": "U28",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A51 4G",
+        "code": "A515"
+      }
+    ]
+  },
+  {
+    "id": "U29",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400",
+    "note": "Módulo distinto del A51 4G aunque la ficha de pantalla es la misma.",
+    "models": [
+      {
+        "name": "Galaxy A51 5G",
+        "code": "A516"
+      }
+    ]
+  },
+  {
+    "id": "U30",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400 · 120 Hz",
+    "note": "Ningún catálogo lo agrupa con la familia A52: va solo.",
+    "models": [
+      {
+        "name": "Galaxy A53 5G",
+        "code": "A536"
+      }
+    ]
+  },
+  {
+    "id": "U31",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A54 5G",
+        "code": "A546"
+      }
+    ]
+  },
+  {
+    "id": "U32",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.6\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A55 5G",
+        "code": "A556"
+      }
+    ]
+  },
+  {
+    "id": "U33",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A56 5G",
+        "code": "A566"
+      }
+    ]
+  },
+  {
+    "id": "U34",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.3\" · 1080×2340",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A60",
+        "code": "A606"
+      }
+    ]
+  },
+  {
+    "id": "U35",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2400",
+    "note": "Frente al A70s hay fuentes en conflicto: un vendedor los agrupa y otro advierte que el de A70 NO sirve en el A70s (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy A70",
+        "code": "A705"
+      }
+    ]
+  },
+  {
+    "id": "U36",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2400",
+    "note": "Frente al A70 hay fuentes en conflicto (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy A70s",
+        "code": "A707"
+      }
+    ]
+  },
+  {
+    "id": "U37",
+    "brand": "samsung",
+    "panel": "Super AMOLED Plus 6.7\" · 1080×2400",
+    "note": "Vendedores indios venden un panel «universal» para A71/M51/M62/F62, pero los Service Pack europeos son por modelo (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy A71 4G",
+        "code": "A715"
+      }
+    ]
+  },
+  {
+    "id": "U38",
+    "brand": "samsung",
+    "panel": "Super AMOLED Plus 6.7\" · 1080×2400",
+    "note": "Módulo distinto del A71 4G.",
+    "models": [
+      {
+        "name": "Galaxy A71 5G",
+        "code": "A716"
+      }
+    ]
+  },
+  {
+    "id": "U39",
+    "brand": "samsung",
+    "panel": "Super AMOLED+ 6.7\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A73 5G",
+        "code": "A736"
+      }
+    ]
+  },
+  {
+    "id": "U40",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2400",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A80",
+        "code": "A805"
+      }
+    ]
+  },
+  {
+    "id": "U41",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2400",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A90 5G",
+        "code": "A908"
+      }
+    ]
+  },
+  {
+    "id": "U42",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.6\" · 720×1480",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A6",
+        "code": "A600"
+      }
+    ]
+  },
+  {
+    "id": "U43",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.0\" · 1080×2220",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A6+",
+        "code": "A605"
+      }
+    ]
+  },
+  {
+    "id": "U44",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.0\" · 1080×2220",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A7 (2018)",
+        "code": "A750"
+      }
+    ]
+  },
+  {
+    "id": "U45",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.6\" · 1080×2220",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A8 (2018)",
+        "code": "A530"
+      }
+    ]
+  },
+  {
+    "id": "U46",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.0\" · 1080×2220",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A8+ (2018)",
+        "code": "A730"
+      }
+    ]
+  },
+  {
+    "id": "U47",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.3\" · 1080×2220",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy A9 (2018)",
+        "code": "A920"
+      }
+    ]
+  },
+  {
+    "id": "U48",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.5\" · 720×1600",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M04",
+        "code": "M045"
+      }
+    ]
+  },
+  {
+    "id": "U49",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.22\" · 720×1520",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M10",
+        "code": "M105"
+      }
+    ]
+  },
+  {
+    "id": "U50",
+    "brand": "samsung",
+    "panel": "PLS LCD 6.3\" · 1080×2340",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M20",
+        "code": "M205"
+      }
+    ]
+  },
+  {
+    "id": "U51",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 720×1600 · 90 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M22",
+        "code": "M225"
+      }
+    ]
+  },
+  {
+    "id": "U52",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400",
+    "note": "Ojo: no es el M30s (M307), que es otro equipo y otra ficha.",
+    "models": [
+      {
+        "name": "Galaxy M31s",
+        "code": "M317"
+      }
+    ]
+  },
+  {
+    "id": "U53",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.5\" · 1080×2400 · 120 Hz",
+    "note": "Service Pack GH82-32101A / GH82-32722A.",
+    "models": [
+      {
+        "name": "Galaxy M34 5G",
+        "code": "M346"
+      }
+    ]
+  },
+  {
+    "id": "U54",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.6\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M35 5G",
+        "code": "M356"
+      }
+    ]
+  },
+  {
+    "id": "U55",
+    "brand": "samsung",
+    "panel": "Super AMOLED Plus 6.7\" · 1080×2400",
+    "note": "Service Pack GH82-24168A. Vendedores indios venden un panel «universal» para A71/M51/M62/F62 (por confirmar).",
+    "models": [
+      {
+        "name": "Galaxy M51",
+        "code": "M515"
+      }
+    ]
+  },
+  {
+    "id": "U56",
+    "brand": "samsung",
+    "panel": "Super AMOLED+ 6.7\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M52 5G",
+        "code": "M526"
+      }
+    ]
+  },
+  {
+    "id": "U57",
+    "brand": "samsung",
+    "panel": "Super AMOLED+ 6.7\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M53 5G",
+        "code": "M536"
+      }
+    ]
+  },
+  {
+    "id": "U58",
+    "brand": "samsung",
+    "panel": "Super AMOLED+ 6.7\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M54 5G",
+        "code": "M546"
+      }
+    ]
+  },
+  {
+    "id": "U59",
+    "brand": "samsung",
+    "panel": "Super AMOLED+ 6.7\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy M55 5G",
+        "code": "M556"
+      }
+    ]
+  },
+  {
+    "id": "U60",
+    "brand": "samsung",
+    "panel": "TFT LCD 6.6\" · 1080×2408 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy F52 5G",
+        "code": "E526"
+      }
+    ]
+  },
+  {
+    "id": "U61",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.8\" · 1440×2960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S8",
+        "code": "G950"
+      }
+    ]
+  },
+  {
+    "id": "U62",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.2\" · 1440×2960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S8+",
+        "code": "G955"
+      }
+    ]
+  },
+  {
+    "id": "U63",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.8\" · 1440×2960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S9",
+        "code": "G960"
+      }
+    ]
+  },
+  {
+    "id": "U64",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.2\" · 1440×2960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S9+",
+        "code": "G965"
+      }
+    ]
+  },
+  {
+    "id": "U65",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 5.8\" · 1080×2280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S10e",
+        "code": "G970"
+      }
+    ]
+  },
+  {
+    "id": "U66",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 6.1\" · 1440×3040",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S10",
+        "code": "G973"
+      }
+    ]
+  },
+  {
+    "id": "U67",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 6.4\" · 1440×3040",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S10+",
+        "code": "G975"
+      }
+    ]
+  },
+  {
+    "id": "U68",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 6.7\" · 1440×3040",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S10 5G",
+        "code": "G977"
+      }
+    ]
+  },
+  {
+    "id": "U69",
+    "brand": "samsung",
+    "panel": "Super AMOLED Plus 6.7\" · 1080×2400",
+    "note": "No confundir con el Note 10 Lite (N770): misma ficha, módulos distintos.",
+    "models": [
+      {
+        "name": "Galaxy S10 Lite",
+        "code": "G770"
+      }
+    ]
+  },
+  {
+    "id": "U70",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.2\" · 1440×3200 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S20",
+        "code": "G980"
+      }
+    ]
+  },
+  {
+    "id": "U71",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.7\" · 1440×3200 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S20+",
+        "code": "G985"
+      }
+    ]
+  },
+  {
+    "id": "U72",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.9\" · 1440×3200 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S20 Ultra",
+        "code": "G988"
+      }
+    ]
+  },
+  {
+    "id": "U73",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.2\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S21",
+        "code": "G991"
+      }
+    ]
+  },
+  {
+    "id": "U74",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.7\" · 1080×2400 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S21+",
+        "code": "G996"
+      }
+    ]
+  },
+  {
+    "id": "U75",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.8\" · 1440×3200 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S21 Ultra",
+        "code": "G998"
+      }
+    ]
+  },
+  {
+    "id": "U76",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.4\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S21 FE",
+        "code": "G990"
+      }
+    ]
+  },
+  {
+    "id": "U77",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.1\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S22",
+        "code": "S901"
+      }
+    ]
+  },
+  {
+    "id": "U78",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.6\" · 1440×3120 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S22+",
+        "code": "S906"
+      }
+    ]
+  },
+  {
+    "id": "U79",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.8\" · 1440×3088 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S22 Ultra",
+        "code": "S908"
+      }
+    ]
+  },
+  {
+    "id": "U80",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.1\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S23",
+        "code": "S911"
+      }
+    ]
+  },
+  {
+    "id": "U81",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.6\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S23+",
+        "code": "S916"
+      }
+    ]
+  },
+  {
+    "id": "U82",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.8\" · 1440×3088 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S23 Ultra",
+        "code": "S918"
+      }
+    ]
+  },
+  {
+    "id": "U83",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.4\" · 1080×2340 · 120 Hz",
+    "note": "No es la pantalla del S23 (6.1\"): módulos distintos pese al nombre.",
+    "models": [
+      {
+        "name": "Galaxy S23 FE",
+        "code": "S711"
+      }
+    ]
+  },
+  {
+    "id": "U84",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.2\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S24",
+        "code": "S921"
+      }
+    ]
+  },
+  {
+    "id": "U85",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.7\" · 1440×3120 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S24+",
+        "code": "S926"
+      }
+    ]
+  },
+  {
+    "id": "U86",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.8\" · 1440×3120 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S24 Ultra",
+        "code": "S928"
+      }
+    ]
+  },
+  {
+    "id": "U87",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.7\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S24 FE",
+        "code": "S721"
+      }
+    ]
+  },
+  {
+    "id": "U88",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.2\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S25",
+        "code": "S931"
+      }
+    ]
+  },
+  {
+    "id": "U89",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.7\" · 1440×3120 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S25+",
+        "code": "S936"
+      }
+    ]
+  },
+  {
+    "id": "U90",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.9\" · 1440×3120 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S25 Ultra",
+        "code": "S938"
+      }
+    ]
+  },
+  {
+    "id": "U91",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.7\" · 1080×2340 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy S25 FE",
+        "code": "S731"
+      }
+    ]
+  },
+  {
+    "id": "U92",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.3\" · 1440×2960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy Note 8",
+        "code": "N950"
+      }
+    ]
+  },
+  {
+    "id": "U93",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.4\" · 1440×2960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy Note 9",
+        "code": "N960"
+      }
+    ]
+  },
+  {
+    "id": "U94",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 6.3\" · 1080×2280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy Note 10",
+        "code": "N970"
+      }
+    ]
+  },
+  {
+    "id": "U95",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 6.8\" · 1440×3040",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy Note 10+",
+        "code": "N975"
+      }
+    ]
+  },
+  {
+    "id": "U96",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.7\" · 1080×2400",
+    "note": "No confundir con el S10 Lite (G770): misma ficha, módulos distintos.",
+    "models": [
+      {
+        "name": "Galaxy Note 10 Lite",
+        "code": "N770"
+      }
+    ]
+  },
+  {
+    "id": "U97",
+    "brand": "samsung",
+    "panel": "Dynamic AMOLED 2X 6.9\" · 1440×3088 · 120 Hz",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy Note 20 Ultra",
+        "code": "N985"
+      }
+    ]
+  },
+  {
+    "id": "U98",
+    "brand": "samsung",
+    "panel": "Super AMOLED 4.7\" · 540×960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J2",
+        "code": "J200"
+      }
+    ]
+  },
+  {
+    "id": "U99",
+    "brand": "samsung",
+    "panel": "TFT LCD 5.0\" · 540×960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J2 Core",
+        "code": "J260"
+      }
+    ]
+  },
+  {
+    "id": "U100",
+    "brand": "samsung",
+    "panel": "PLS LCD 5.0\" · 540×960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J2 Prime",
+        "code": "G532"
+      }
+    ]
+  },
+  {
+    "id": "U101",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.0\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J3 (2016)",
+        "code": "J320"
+      }
+    ]
+  },
+  {
+    "id": "U102",
+    "brand": "samsung",
+    "panel": "PLS LCD 5.0\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J3 (2017)",
+        "code": "J330"
+      }
+    ]
+  },
+  {
+    "id": "U103",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.5\" · 540×960",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J4",
+        "code": "J400"
+      }
+    ]
+  },
+  {
+    "id": "U104",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.2\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J5 (2016)",
+        "code": "J510"
+      }
+    ]
+  },
+  {
+    "id": "U105",
+    "brand": "samsung",
+    "panel": "PLS LCD 5.0\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J5 Prime",
+        "code": "G570"
+      }
+    ]
+  },
+  {
+    "id": "U106",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.2\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J5 (2017) / J5 Pro",
+        "code": "J530"
+      }
+    ]
+  },
+  {
+    "id": "U107",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.6\" · 720×1480",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J6",
+        "code": "J600"
+      }
+    ]
+  },
+  {
+    "id": "U108",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.5\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J7 (2016)",
+        "code": "J710"
+      }
+    ]
+  },
+  {
+    "id": "U109",
+    "brand": "samsung",
+    "panel": "PLS LCD 5.5\" · 1080×1920",
+    "note": "MovilStore vende la pantalla del J7 Prime 2 (G611) como exclusiva de ese modelo (por confirmar si comparten). El Galaxy On7 2016 es el mismo G610 renombrado.",
+    "models": [
+      {
+        "name": "Galaxy J7 Prime",
+        "code": "G610"
+      }
+    ]
+  },
+  {
+    "id": "U110",
+    "brand": "samsung",
+    "panel": "PLS LCD 5.5\" · 1080×1920",
+    "note": "MovilStore la vende como exclusiva del G611 (por confirmar frente al G610).",
+    "models": [
+      {
+        "name": "Galaxy J7 Prime 2",
+        "code": "G611"
+      }
+    ]
+  },
+  {
+    "id": "U111",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.5\" · 1080×1920",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J7 (2017) / J7 Pro",
+        "code": "J730"
+      }
+    ]
+  },
+  {
+    "id": "U112",
+    "brand": "samsung",
+    "panel": "Super AMOLED 5.5\" · 720×1280",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J7 Neo / J7 Nxt",
+        "code": "J701"
+      }
+    ]
+  },
+  {
+    "id": "U113",
+    "brand": "samsung",
+    "panel": "PLS LCD 5.7\" · 1080×1920",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J7 Max",
+        "code": "G615"
+      }
+    ]
+  },
+  {
+    "id": "U114",
+    "brand": "samsung",
+    "panel": "Super AMOLED 6.0\" · 720×1480",
+    "note": null,
+    "models": [
+      {
+        "name": "Galaxy J8",
+        "code": "J810"
+      }
+    ]
+  },
+  {
+    "id": "U115",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.53\" · 1080×2340",
+    "note": "Ningún catálogo lo agrupa con el Note 8: pantalla propia.",
+    "models": [
+      {
+        "name": "Redmi Note 8 Pro",
+        "code": "M1906G7I"
+      }
+    ]
+  },
+  {
+    "id": "U116",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.3\" · 1080×2340",
+    "note": "Existe un producto de GsmServer «Note 8 / Note 8T», pero el 8T es más alto (marco distinto): tratar como único hasta verificar con marco en mano.",
+    "models": [
+      {
+        "name": "Redmi Note 8",
+        "code": "M1908C3JH"
+      }
+    ]
+  },
+  {
+    "id": "U117",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Un vendedor lo anuncia junto al Note 14 4G/5G, pero All-Spares y GsmServer lo venden solo (por confirmar).",
+    "models": [
+      {
+        "name": "Redmi Note 13 4G",
+        "code": "23124RA7EO"
+      }
+    ]
+  },
+  {
+    "id": "U118",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.55\" · 1080×2400",
+    "note": "Mayoristas lo mezclan con el grupo Mi 11 Lite, pero GsmServer y All-Spares lo venden como módulo aparte: se sigue a los catálogos estructurados.",
+    "models": [
+      {
+        "name": "Mi 11 Lite 5G NE",
+        "code": "2109119DG"
+      }
+    ]
+  },
+  {
+    "id": "U119",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1220×2712 (curvo)",
+    "note": "Polar Tech lo agrupa con el Note 14 Pro 5G; All-Spares y GsmServer lo venden como módulo único (por confirmar).",
+    "models": [
+      {
+        "name": "Redmi Note 13 Pro+ 5G",
+        "code": "23090RA98C"
+      }
+    ]
+  },
+  {
+    "id": "U120",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1440×3200",
+    "note": null,
+    "models": [
+      {
+        "name": "Poco F6 Pro",
+        "code": "23113RKC6G"
+      }
+    ]
+  },
+  {
+    "id": "U121",
+    "brand": "xiaomi",
+    "panel": "IPS LCD 6.88\" · 720×1640",
+    "note": "Mismo tamaño y resolución que la familia del 14C, pero TechComponentes vende su Service Pack como producto propio (posible parentesco, por confirmar).",
+    "models": [
+      {
+        "name": "Redmi A5 4G",
+        "code": "2501DRN4BG"
+      }
+    ]
+  },
+  {
+    "id": "U122",
+    "brand": "xiaomi",
+    "panel": "AMOLED 6.67\" · 1080×2400",
+    "note": "Cristal de 161.5 mm: NO es compatible con la versión Global del mismo modelo (159.6 mm).",
+    "models": [
+      {
+        "name": "Redmi Note 14 4G (EU)",
+        "code": "24117RN76E"
+      }
+    ]
+  },
+  {
+    "id": "U123",
+    "brand": "motorola",
+    "panel": "IPS LCD 6.8\" · 720×1640",
+    "note": null,
+    "models": [
+      {
+        "name": "Moto G9 Power",
+        "code": "XT2091"
+      }
+    ]
+  }
+];
 
       // Códigos de panel conocidos que aún no están identificados
       var PANEL_CODES = [
-        {
-          codes: ["J4651", "P4651"],
-          status: "Sin identificar todavía — caso real de taller, pendiente de verificación.",
-          detail: "Panel genérico (incell) con marco. Los códigos impresos J4651 (panel) y P4651 R-S3 V7 (flex) son internos de la fábrica del panel y no aparecen en ningún catálogo de repuestos."
-        }
-      ];
+  {
+    "codes": [
+      "J4651",
+      "P4651"
+    ],
+    "status": "Sin identificar todavía — caso real de taller, pendiente de verificación.",
+    "detail": "Panel genérico (incell) con marco. Los códigos impresos J4651 (panel) y P4651 R-S3 V7 (flex) son internos de la fábrica del panel y no aparecen en ningún catálogo de repuestos."
+  },
+  {
+    "codes": [
+      "BG610ABE"
+    ],
+    "tag": "Identificado",
+    "tagClass": "tag-catalogo",
+    "status": "Identificado — dato de catálogo.",
+    "detail": "Código impreso en el módulo compartido por Galaxy J4 Core (J410), Galaxy J4+ (J415) y Galaxy J6+ (J610): los tres comparten la misma pantalla (TFT 6.0\" · 720×1520)."
+  },
+  {
+    "codes": [
+      "RED 9A/9"
+    ],
+    "tag": "Identificado",
+    "tagClass": "tag-catalogo",
+    "status": "Identificado — dato de catálogo.",
+    "detail": "Flex impreso en los combos de la familia Redmi 9A / 9C / 9AT / 9i / 10A / Poco C3 / Poco C31 (IPS 6.53\" · 720×1600)."
+  },
+  {
+    "codes": [
+      "WM6556Z21-1"
+    ],
+    "tag": "Identificado",
+    "tagClass": "tag-catalogo",
+    "status": "Identificado — dato de catálogo.",
+    "detail": "Código de panel del Mi 11 Lite y Mi 11 Lite 5G (AMOLED 6.55\" · 1080×2400). Ojo: el Mi 11 Lite 5G NE usa otro módulo."
+  }
+];
 
       // ---------- Utilidades ----------
       function normalize(str) {
@@ -727,8 +3527,8 @@
 
         resultsEl.innerHTML = html;
         emptyEl.hidden = shown > 0;
-        countEl.textContent = shown === 48 && !query && activeBrand === "todos"
-          ? "Mostrando los 48 modelos de la base."
+        countEl.textContent = shown === 350 && !query && activeBrand === "todos"
+          ? "Mostrando los 350 modelos de la base."
           : "Mostrando " + shown + (shown === 1 ? " modelo." : " modelos.");
         clearBtn.classList.toggle("visible", searchInput.value.length > 0);
       }
@@ -759,7 +3559,7 @@
         var codesHtml = found.codes.map(function (c) { return "<span>" + esc(c) + "</span>"; }).join("");
         return '<div class="unknown-card">' +
           '<div class="codes">' + codesHtml + '</div>' +
-          '<span class="tag tag-pending">Sin identificar</span>' +
+          '<span class="tag " + (found.tagClass || "tag-pending") + "">' + esc(found.tag || "Sin identificar") + "</span>" +
           "<p><b>" + esc(found.status) + "</b></p>" +
           "<p>" + esc(found.detail) + "</p>" +
           "</div>";
