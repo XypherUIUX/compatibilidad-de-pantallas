@@ -3,389 +3,226 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f5f0e9" />
     <link rel="icon" href="data:," />
     <title>Screen Compatibility</title>
     <style>
-      :root {
-        --bg: #18212c;
-        --bg-deep: #121a23;
-        --accent: #168bf0;
-        --accent-soft: rgba(22, 139, 240, 0.16);
-        --card: rgba(245, 247, 250, 0.96);
-        --card-border: rgba(255, 255, 255, 0.55);
-        --ink: #1b2735;
-        --ink-soft: #4c5b6d;
-        --ink-faint: #71828f;
-        --text: #eef3f8;
-        --text-soft: #aebfce;
-        --warn-bg: rgba(255, 176, 32, 0.1);
-        --warn-border: rgba(255, 176, 32, 0.45);
-        --warn-text: #ffd97a;
-        --danger: #e5484d;
-        --radius: 18px;
-      }
-      * { box-sizing: border-box; }
-      html {
-        -webkit-text-size-adjust: 100%;
-        background-color: #18212c;
-      }
-      body {
-        margin: 0;
-        background-color: #18212c;
-        background-image:
-          radial-gradient(1100px 500px at 85% -120px, rgba(22, 139, 240, 0.22), transparent 60%),
-          radial-gradient(700px 420px at -10% 30%, rgba(22, 139, 240, 0.1), transparent 55%),
-          linear-gradient(180deg, #18212c 0%, #121a23 100%);
-        background-repeat: no-repeat;
-        color: var(--text);
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.45;
-      }
-      .wrap {
-        max-width: 880px;
-        margin: 0 auto;
-        padding: 28px 18px 56px;
-      }
+/* Screen Compatibility — diseño cristal claro (aprobado por Xypher el 09/11/2026)
+   Fondo crema cálido, esferas fijas al fondo (NUNCA pegadas a las tarjetas),
+   tarjetas de cristal esmerilado transparente, acentos naranja/azul pastel. */
+:root {
+  --ink: #2e2a26;
+  --muted: #8a8178;
+  --orange: #ff7a1a;
+  --orange-2: #ff9a3d;
+  --blue: #4a90e2;
+  --green: #3d9970;
+  --glass: rgba(255, 255, 255, 0.58);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.78);
+  --shadow: 0 18px 42px rgba(196, 152, 108, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --radius: 26px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: #f5f0e9;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+/* Esferas decorativas FIJAS al fondo: no se mueven con ninguna tarjeta */
+.orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+.orb-orange {
+  width: 78vmin; height: 78vmin; top: -30vmin; right: -22vmin;
+  background: radial-gradient(circle at 32% 32%, #ffd9ae 0%, #ffb26b 42%, #ff8a3d 78%, #ff7a1a 100%);
+  opacity: 0.95;
+}
+.orb-blue {
+  width: 62vmin; height: 62vmin; bottom: -28vmin; left: -20vmin;
+  background: radial-gradient(circle at 38% 34%, #d7e9ff 0%, #a9ccf7 48%, #7db3f0 100%);
+  opacity: 0.8;
+}
+.orb-soft {
+  width: 40vmin; height: 40vmin; bottom: 6vmin; right: -16vmin;
+  background: radial-gradient(circle at 40% 36%, #ffe9d2 0%, #ffc98f 60%, rgba(255, 180, 110, 0) 100%);
+  opacity: 0.55;
+}
+.wrap { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 26px 16px 40px; }
 
-      /* ---------- Encabezado ---------- */
-      header { margin-bottom: 22px; }
-      h1 {
-        margin: 0 0 6px;
-        font-size: clamp(1.65rem, 5.5vw, 2.35rem);
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        line-height: 1.12;
-      }
-      .subtitle {
-        margin: 0 0 18px;
-        color: var(--text-soft);
-        font-size: 1rem;
-      }
-      .stats {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .stat {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 12px;
-        padding: 10px 16px;
-        min-width: 130px;
-      }
-      .stat b {
-        display: block;
-        font-size: 1.45rem;
-        font-weight: 800;
-        color: #fff;
-        line-height: 1.1;
-      }
-      .stat span { font-size: 0.82rem; color: var(--text-soft); }
+/* ---------- Encabezado ---------- */
+header { margin-bottom: 18px; }
+.brand-row { display: flex; align-items: center; gap: 14px; }
+.logo-tile {
+  width: 62px; height: 62px; flex: 0 0 62px; border-radius: 20px;
+  background: var(--glass-strong); border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.logo-tile img { width: 78%; height: 78%; object-fit: contain; display: block; }
+h1 { font-size: 26px; line-height: 1.12; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+.subtitle { margin: 3px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.35; }
+.brands-line { margin: 10px 0 0; font-size: 12px; color: var(--muted); letter-spacing: 0.02em; }
+.brands-line b { color: var(--ink); font-weight: 600; }
 
-      /* ---------- Buscador ---------- */
-      .search-box {
-        position: sticky;
-        top: 10px;
-        z-index: 20;
-        background: rgba(24, 33, 44, 0.82);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: var(--radius);
-        padding: 14px;
-        margin-bottom: 20px;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-      }
-      .search-field {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: #fff;
-        border-radius: 12px;
-        padding: 0 14px;
-        border: 2px solid transparent;
-      }
-      .search-field:focus-within { border-color: var(--accent); }
-      .search-field svg { flex: 0 0 auto; color: var(--ink-faint); }
-      .search-field input {
-        flex: 1;
-        min-width: 0;
-        border: 0;
-        outline: 0;
-        background: transparent;
-        font: inherit;
-        font-size: 1.05rem;
-        color: var(--ink);
-        padding: 14px 0;
-      }
-      .search-field input::placeholder { color: var(--ink-faint); }
-      .clear-btn {
-        flex: 0 0 auto;
-        border: 0;
-        background: var(--accent-soft);
-        color: var(--accent);
-        width: 28px; height: 28px;
-        border-radius: 50%;
-        font-size: 1rem;
-        line-height: 1;
-        cursor: pointer;
-        display: none;
-      }
-      .clear-btn.visible { display: block; }
-      .filters {
-        display: flex;
-        gap: 8px;
-        margin-top: 12px;
-        flex-wrap: wrap;
-      }
-      .chip {
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: rgba(255, 255, 255, 0.06);
-        color: var(--text);
-        font: inherit;
-        font-size: 0.92rem;
-        font-weight: 600;
-        padding: 8px 18px;
-        border-radius: 999px;
-        cursor: pointer;
-        transition: background 0.15s ease, border-color 0.15s ease;
-      }
-      .chip:hover { border-color: var(--accent); }
-      .chip.active {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: #fff;
-      }
-      .result-count {
-        margin: 12px 2px 0;
-        font-size: 0.88rem;
-        color: var(--text-soft);
-      }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.stat {
+  background: var(--glass); border: 1px solid var(--glass-border); border-radius: 22px;
+  box-shadow: var(--shadow); padding: 14px 16px;
+  -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+}
+.stat b { display: block; font-size: 30px; line-height: 1; font-weight: 700; }
+.stat span { display: block; margin-top: 5px; font-size: 12.5px; color: var(--muted); line-height: 1.3; }
+.stat:nth-child(1) b { color: var(--orange); }
+.stat:nth-child(2) b { color: var(--blue); }
+.stat:nth-child(3) b { color: var(--ink); }
+.stat:nth-child(4) b { color: var(--green); }
 
-      /* ---------- Tarjetas de modelos ---------- */
-      .results { display: grid; gap: 14px; }
-      .model-card {
-        background: var(--card);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 18px;
-        color: var(--ink);
-        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
-      }
-      .model-head {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .model-name {
-        margin: 0;
-        font-size: 1.28rem;
-        font-weight: 800;
-        letter-spacing: -0.01em;
-        line-height: 1.2;
-      }
-      .model-code {
-        display: inline-block;
-        margin-top: 4px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: var(--accent);
-        background: var(--accent-soft);
-        padding: 2px 9px;
-        border-radius: 6px;
-        font-variant-numeric: tabular-nums;
-      }
-      .tag {
-        flex: 0 0 auto;
-        font-size: 0.74rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        padding: 5px 10px;
-        border-radius: 999px;
-      }
-      .tag-catalogo { background: #e3ecf5; color: #3d5a76; }
-      .panel-spec {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin: 14px 0 0;
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: var(--ink-soft);
-      }
-      .panel-spec svg { color: var(--accent); flex: 0 0 auto; }
-      .group-label {
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--ink-faint);
-      }
-      .fits-label {
-        margin: 16px 0 8px;
-        font-size: 0.92rem;
-        font-weight: 700;
-        color: var(--ink);
-      }
-      .fits-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 7px;
-      }
-      .fits-list li {
-        background: #eef3f8;
-        border: 1px solid #d7e1ec;
-        border-radius: 9px;
-        padding: 6px 11px;
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-      .fits-list li .code { color: var(--accent); font-weight: 700; font-size: 0.82rem; }
-      .no-group {
-        margin: 14px 0 0;
-        font-size: 0.92rem;
-        color: var(--ink-soft);
-        font-style: italic;
-      }
-      .unique-alert {
-        margin-top: 14px;
-        background: #fdecec;
-        border: 1.5px solid var(--danger);
-        border-radius: 10px;
-        padding: 12px 14px;
-      }
-      .unique-alert-title {
-        margin: 0 0 4px;
-        font-size: 0.95rem;
-        font-weight: 800;
-        color: #a02327;
-      }
-      .unique-alert-text {
-        margin: 0;
-        font-size: 0.9rem;
-        color: #6e3a3c;
-      }
-      .group-note {
-        margin: 14px 0 0;
-        padding: 11px 13px;
-        background: #fff7e0;
-        border: 1px solid #f0d48a;
-        border-radius: 10px;
-        font-size: 0.88rem;
-        color: #6b5510;
-      }
-      .empty {
-        text-align: center;
-        padding: 38px 20px;
-        color: var(--text-soft);
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px dashed rgba(255, 255, 255, 0.2);
-        border-radius: var(--radius);
-      }
-      .empty b { color: var(--text); display: block; font-size: 1.05rem; margin-bottom: 4px; }
+/* ---------- Tarjeta de cristal genérica ---------- */
+.search-box, .model-card, .warn-card, .unknown-card, footer {
+  background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+}
 
-      /* ---------- Secciones ---------- */
-      section { margin-top: 38px; }
-      h2 {
-        margin: 0 0 6px;
-        font-size: 1.35rem;
-        font-weight: 800;
-        letter-spacing: -0.01em;
-      }
-      .section-sub {
-        margin: 0 0 16px;
-        color: var(--text-soft);
-        font-size: 0.95rem;
-      }
-      .warn-card {
-        background: var(--warn-bg);
-        border: 1px solid var(--warn-border);
-        border-radius: var(--radius);
-        padding: 16px 18px;
-        margin-bottom: 12px;
-      }
-      .warn-card h3 {
-        margin: 0 0 5px;
-        font-size: 1.02rem;
-        font-weight: 800;
-        color: var(--warn-text);
-      }
-      .warn-card p { margin: 0; font-size: 0.94rem; color: #e8e2cf; }
+/* ---------- Buscador ---------- */
+.search-box { padding: 18px; margin-bottom: 18px; }
+.search-field {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--glass-strong); border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px; padding: 6px 8px 6px 16px;
+  box-shadow: 0 10px 26px rgba(196, 152, 108, 0.16), inset 0 1px 0 #ffffff;
+  color: var(--muted);
+}
+.search-field input {
+  flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+  font: inherit; font-size: 15px; color: var(--ink); padding: 9px 0;
+}
+.search-field input::placeholder { color: #a79d92; }
+.clear-btn {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(46, 42, 38, 0.06); color: var(--muted); font-size: 18px; line-height: 1;
+  display: none; align-items: center; justify-content: center;
+}
+.clear-btn.visible { display: flex; }
+.filters { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+.chip {
+  font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer;
+  padding: 9px 16px; border-radius: 999px; color: #57504a;
+  background: rgba(255, 255, 255, 0.66); border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px rgba(196, 152, 108, 0.13);
+  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+.chip:active { transform: scale(0.96); }
+.chip.active {
+  background: linear-gradient(135deg, var(--orange-2), var(--orange));
+  color: #ffffff; border-color: transparent;
+  box-shadow: 0 10px 22px rgba(255, 122, 26, 0.38);
+}
+.result-count { margin: 14px 2px 0; font-size: 13px; color: var(--muted); }
 
-      .panel-search {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: var(--radius);
-        padding: 16px;
-      }
-      .panel-search .search-field { border-radius: 10px; }
-      .panel-result { margin-top: 14px; }
-      .unknown-card {
-        background: var(--card);
-        border: 1px solid var(--card-border);
-        border-radius: 14px;
-        padding: 16px 18px;
-        color: var(--ink);
-      }
-      .unknown-card .codes {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 7px;
-        margin: 0 0 10px;
-      }
-      .unknown-card .codes span {
-        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-        font-size: 0.95rem;
-        font-weight: 700;
-        background: #eef3f8;
-        border: 1px solid #d7e1ec;
-        padding: 4px 10px;
-        border-radius: 7px;
-      }
-      .tag-pending {
-        background: #fde8e8;
-        color: var(--danger);
-      }
-      .unknown-card p { margin: 8px 0 0; font-size: 0.93rem; color: var(--ink-soft); }
-      .panel-hint { margin: 12px 2px 0; font-size: 0.88rem; color: var(--text-soft); }
+/* ---------- Resultados ---------- */
+.results { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.model-card { padding: 17px 18px; }
+.model-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.model-name { margin: 0; font-size: 17.5px; font-weight: 600; line-height: 1.25; }
+.model-code {
+  display: inline-block; margin-top: 5px; font-size: 12px; font-weight: 600; letter-spacing: 0.03em;
+  color: #6d655c; background: rgba(46, 42, 38, 0.06); padding: 3px 9px; border-radius: 8px;
+}
+.panel-spec { display: flex; align-items: center; gap: 7px; margin: 11px 0 0; font-size: 13.5px; color: #57504a; }
+.panel-spec svg { color: var(--blue); flex: 0 0 auto; }
+.group-label { color: var(--muted); font-size: 12.5px; }
+.fits-label { margin: 13px 0 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.fits-list { margin: 0; padding: 0; list-style: none; }
+.fits-list li { position: relative; padding: 3px 0 3px 16px; font-size: 14.5px; }
+.fits-list li::before {
+  content: ""; position: absolute; left: 1px; top: 11px; width: 6px; height: 6px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange-2), var(--orange));
+}
+.fits-list .code { font-size: 12px; color: var(--muted); font-weight: 600; }
+.group-note {
+  margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: #6d655c;
+  background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px; padding: 10px 12px;
+}
+.unique-alert {
+  margin-top: 12px; border-radius: 16px; padding: 12px 14px;
+  background: rgba(255, 154, 61, 0.14); border: 1px solid rgba(255, 154, 61, 0.30);
+}
+.unique-alert-title { margin: 0; font-size: 13.5px; font-weight: 600; color: #c85a00; }
+.unique-alert-text { margin: 5px 0 0; font-size: 13px; line-height: 1.5; color: #7a5a38; }
 
-      footer {
-        margin-top: 44px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--text-soft);
-        font-size: 0.86rem;
-      }
-      footer p { margin: 0 0 6px; }
-      .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-      .legend .tag { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
-      .tag-taller { background: #dff5e3; color: #1c6b34; }
+/* ---------- Etiquetas ---------- */
+.tag {
+  flex: 0 0 auto; font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+  padding: 5px 10px; border-radius: 999px; white-space: nowrap;
+}
+.tag-catalogo { background: rgba(74, 144, 226, 0.16); color: #2f6fd0; }
+.tag-taller { background: rgba(61, 153, 112, 0.18); color: #25714e; }
+.tag-pending { background: rgba(255, 176, 32, 0.20); color: #96690a; }
 
-      @media (min-width: 640px) {
-        .results { grid-template-columns: 1fr 1fr; }
-      }
+/* ---------- Secciones ---------- */
+section { margin-top: 28px; }
+section h2 { font-size: 20px; margin: 0 0 4px; font-weight: 700; }
+.section-sub { margin: 0 0 14px; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+.warn-card { padding: 15px 17px; margin-bottom: 12px; border-left: 5px solid rgba(255, 176, 32, 0.75); }
+.warn-card h3 { margin: 0 0 5px; font-size: 15.5px; font-weight: 600; }
+.warn-card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: #57504a; }
+
+/* ---------- Código de panel ---------- */
+.panel-search .search-field { margin-bottom: 4px; }
+.panel-result { margin-top: 12px; }
+.panel-result:empty { margin-top: 0; }
+.unknown-card { padding: 15px 17px; }
+.unknown-card .codes { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
+.unknown-card .codes .code, .unknown-card code {
+  font-size: 12.5px; font-weight: 600; background: rgba(46, 42, 38, 0.06);
+  padding: 4px 10px; border-radius: 8px; color: #57504a;
+}
+.unknown-card p { font-size: 13.5px; line-height: 1.55; color: #57504a; }
+.panel-hint { margin: 12px 2px 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+/* ---------- Vacío / pie ---------- */
+.empty {
+  text-align: center; padding: 30px 20px; border-radius: var(--radius);
+  background: var(--glass); border: 1px dashed rgba(138, 129, 120, 0.4); color: var(--muted);
+  font-size: 14.5px; line-height: 1.55;
+}
+footer { margin-top: 30px; padding: 16px 18px; font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+footer p { margin: 0; }
+.legend { display: flex; gap: 8px; margin-top: 10px; }
+
+@media (min-width: 640px) {
+  .results { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  h1 { font-size: 30px; }
+}
+
     </style>
   </head>
   <body>
+    <div class="orb orb-orange" aria-hidden="true"></div>
+    <div class="orb orb-blue" aria-hidden="true"></div>
+    <div class="orb orb-soft" aria-hidden="true"></div>
     <div class="wrap">
       <header>
-        <h1>Screen Compatibility</h1>
-        <p class="subtitle">Base de datos de compatibilidades para técnicos</p>
+        <div class="brand-row">
+          <div class="logo-tile"><img src="icon.png" alt="" /></div>
+          <div>
+            <h1>Screen Compatibility</h1>
+            <p class="subtitle">Base de compatibilidades de pantallas para técnicos</p>
+          </div>
+        </div>
+        <p class="brands-line">Marcas en la base: <b>Samsung · Xiaomi · Motorola</b></p>
         <div class="stats">
           <div class="stat"><b>350</b><span>modelos registrados</span></div>
           <div class="stat"><b>64</b><span>grupos de compatibilidad</span></div>
           <div class="stat"><b>123</b><span>pantallas únicas</span></div>
-          <div class="stat"><b>3</b><span>marcas: Samsung, Xiaomi y Motorola</span></div>
-          <div class="stat"><b>14</b><span>grupos de compatibilidad</span></div>
-          <div class="stat"><b>4</b><span>pantallas únicas</span></div>
-          <div class="stat"><b>3</b><span>marcas: Samsung, Xiaomi y Motorola</span></div>
+          <div class="stat"><b>15</b><span>avisos de gemelos</span></div>
         </div>
       </header>
 
@@ -639,7 +476,7 @@
     "id": "G5",
     "brand": "samsung",
     "panel": "PLS LCD 6.6\" · 1080×2408",
-    "note": "Pedir la versión de conector largo de 48 pines. Ojo: el Galaxy A14 A145P NO entra en esta familia — su módulo se vende aparte.",
+    "note": "Pedir la versión de conector largo de 48 pines. Ojo: el Galaxy A14 A145P NO entra en esta familia — su módulo se vende aparte. Aviso UE/no-UE: UTOPYA advierte que su pantalla A145 solo sirve para el A14 4G europeo; fuera de Europa Samsung usó generalmente pantallas tipo A14 5G (A146), con conectores distintos — verificar el conector antes de montar.",
     "models": [
       {
         "name": "Galaxy A14 4G",
