@@ -1,4 +1,4 @@
-name: Compilar APK Compatibilidad de Pantallas
+name: Compilar APK Screen Compatibility
 
 on:
   push:
@@ -171,7 +171,7 @@ jobs:
           cat > android/app/src/main/res/values/strings.xml <<'EOF_CP'
           <?xml version="1.0" encoding="utf-8"?>
           <resources>
-              <string name="app_name">Compatibilidad de Pantallas</string>
+              <string name="app_name">Screen Compatibility</string>
           </resources>
           EOF_CP
           cat > android/app/src/main/res/values/colors.xml <<'EOF_CP'
@@ -222,18 +222,18 @@ jobs:
         run: gradle assembleDebug --no-daemon --stacktrace
 
       - name: Preparar la APK con su nombre
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk Compatibilidad-de-Pantallas.apk
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk Screen-Compatibility.apk
 
       - name: Publicar la APK como Release descargable
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v1.0
-          name: Compatibilidad de Pantallas · APK v1.0
-          body: "Base de compatibilidades de pantallas para técnicos de celulares (48 modelos, 14 grupos, búsqueda por modelo y por código de panel). Desarrollado por XypherUnlocker. Descarga Compatibilidad-de-Pantallas.apk e instálala en tu Android (permite 'orígenes desconocidos' si te lo pide)."
-          files: Compatibilidad-de-Pantallas.apk
+          name: Screen Compatibility · APK v1.0
+          body: "Base de compatibilidades de pantallas para técnicos de celulares (48 modelos, 14 grupos, búsqueda por modelo y por código de panel). Desarrollado por XypherUnlocker. Descarga Screen-Compatibility.apk e instálala en tu Android (permite 'orígenes desconocidos' si te lo pide)."
+          files: Screen-Compatibility.apk
 
       - name: Guardar también como artefacto
         uses: actions/upload-artifact@v4
         with:
-          name: Compatibilidad-de-Pantallas-apk
-          path: Compatibilidad-de-Pantallas.apk
+          name: Screen-Compatibility-apk
+          path: Screen-Compatibility.apk
