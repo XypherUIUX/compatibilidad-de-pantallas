@@ -70,8 +70,8 @@ jobs:
                   applicationId 'com.xypherunlocker.pantallas'
                   minSdk 26
                   targetSdk 34
-                  versionCode 4
-                  versionName '1.3'
+                  versionCode 5
+                  versionName '1.4'
               }
 
               signingConfigs {
@@ -228,9 +228,9 @@ jobs:
       - name: Publicar la APK como Release descargable
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.3
-          name: Screen Compatibility · APK v1.3
-          body: "Base de compatibilidades de pantallas para técnicos de celulares: 350 modelos, 64 grupos de compatibilidad, 123 pantallas únicas y búsqueda por modelo y por código de panel (Samsung y Xiaomi a fondo, más Motorola). Desarrollado por XypherUnlocker. Descarga Screen-Compatibility.apk e instálala en tu Android (permite 'orígenes desconocidos' si te lo pide)."
+          tag_name: v1.4
+          name: Screen Compatibility · APK v1.4
+          body: "Base de compatibilidades de pantallas para técnicos de celulares: 465 modelos, 82 grupos de compatibilidad, 124 pantallas únicas y búsqueda por modelo y por código de panel (Samsung, Xiaomi, Motorola y Tecno Spark con sus cruces Transsion a Infinix e Itel). Desarrollado por XypherUnlocker. Descarga Screen-Compatibility.apk e instálala en tu Android (permite 'orígenes desconocidos' si te lo pide)."
           files: Screen-Compatibility.apk
 
       - name: Guardar también como artefacto
